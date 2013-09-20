@@ -1,0 +1,25 @@
+[core]
+  editor = vim
+
+[alias]
+# Common shortcuts
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  lg = log --graph --pretty=format:'%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
+
+[user]
+	name = Andrew Tulloch
+	email = andrew@tullo.ch
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+
+[log]
+  date = relative
+
+[diff]
+	algorithm = patience

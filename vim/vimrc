@@ -1,0 +1,118 @@
+st autoread
+set hidden
+set ttyfast
+set showmatch
+set incsearch
+set hlsearch
+
+call pathogen#infect()
+syntax enable
+" let g:solarized_termcolors=256
+set background=dark
+set t_Co=256
+colorscheme solarized
+
+set tags=tags;/
+
+set shiftwidth=2
+set expandtab
+set tabstop=2
+set softtabstop=2
+
+filetype plugin indent on
+
+" Powerline
+" let g:Powerline_symbols = 'fancy'
+
+"Highlighting text past 80 characters"
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
+" Eliminating tabs
+syn match tab display "\t"
+hi link tab Error
+
+" Line numbering, ignore case in search unless caps used
+" show list of options for tab completion
+set nu  
+set ignorecase
+set smartcase
+" set wildmenu
+" set wildmode=longest,full
+set complete-=i
+set path+=.;
+
+" Command line information
+if has('cmdline_info')
+	set ruler                  	" show the ruler
+	set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " a ruler on steroids
+	set showcmd                	" show partial commands in status line and
+								" selected characters/lines in visual mode
+endif
+" Statusline
+if has('statusline')
+  set laststatus=2
+  " Broken down into easily includeable segments
+  set statusline=%<%f\    " Filename
+  "set statusline+=%w%h%m%r " Options
+  "set statusline+=%{fugitive#statusline()} "  Git Hotness
+  "set statusline+=\ [%{&ff}/%Y]            " filetype
+  "set statusline+=\ [%{getcwd()}]          " current dir
+  "set statusline+=\ [A=\%03.3b/H=\%02.2B] " ASCII / Hexadecimal value of char
+  "set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+endif
+
+" Colours
+set gfn=Monaco:h12
+
+set history=1000  				" Store a ton of history (default is 20)
+set spell 		 	        	" spell checking on
+set virtualedit=onemore 	   	" allow for cursor beyond last character
+
+set showmode                   	" display the current mode
+set cursorline  				" highlight current line
+
+set hidden "Allows for ctags without not saving
+
+set pastetoggle=<F2>
+
+" set mouse=a
+" set ttymouse=xterm
+
+" Lets ctags work for XHP
+autocmd FileType php setlocal iskeyword+=:,- iskeyword-=<
+
+"JSON highlighting"
+
+" Map ; to :
+:nmap ; :
+
+" Add highlighting for function definition in C++
+function! EnhanceCppSyntax()
+  syn match cppFuncDef "::\~\?\zs\h\w*\ze([^)]*\()\s*\(const\)\?\)\?$"
+  hi def link cppFuncDef Special
+endfunction
+
+" Arc Inline
+command Ai ArcInlines
+
+autocmd Syntax cpp call EnhanceCppSyntax()
+
+"Syntastic fixes
+
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['python', 'php', 'c++'], 'passive_filetypes': [] }
+" let g:pymode_lint_message = 0
+
+
+" Remap arrows to split navigation
+nnoremap <Right> <C-w>l
+nnoremap <Left> <C-w>h
+nnoremap <Up> <C-w>k
+nnoremap <Down> <C-w>j
+
+im <Tab> <C-X><C-U>
+inore <Tab> <C-X><C-U>
+
+autocmd QuickFixCmdPost *grep* cwindow
+
+set shell=zsh

@@ -1,0 +1,22 @@
+# .zshrc
+# Source global definitions
+if [ -f /etc/zshrc ]; then
+	. /etc/zshrc
+fi
+
+# Personal
+alias gri='git rebase -i'
+alias gdn='git diff HEAD\^ --name-only'
+alias gdn='git diff HEAD\^ --name-only'
+alias gaa='git add . && git commit --amend -C HEAD'
+alias vgdn='vim -O `gdn | grep -v __init__`'
+alias ls='ls --color=auto'
+alias grep='grep --colour=auto'
+alias gl='git lg'
+
+alias gfr='git fetch && git rebase origin/master'
+alias gft='git fetch && git rebase trunk'
+alias tma='tmux attach -d'
+
+export LC_ALL=en_US.utf-8 
+export LANG="$LC_ALL" 
