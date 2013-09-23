@@ -5,6 +5,8 @@ if [ -f /etc/zshrc ]; then
 fi
 
 # Personal
+alias st='git status'
+alias br='git branch'
 alias gri='git rebase -i'
 alias gdn='git diff HEAD\^ --name-only'
 alias gdn='git diff HEAD\^ --name-only'
