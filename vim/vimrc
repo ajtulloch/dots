@@ -1,4 +1,4 @@
-st autoread
+set autoread
 set hidden
 set ttyfast
 set showmatch
