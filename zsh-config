@@ -1,0 +1,5 @@
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+export GOPATH=~/Code/go
+export PATH="/usr/local/bin:$PATH"
+export PATH=$PATH:$GOPATH/bin

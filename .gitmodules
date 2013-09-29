@@ -1,0 +1,39 @@
+[submodule "vim/bundle/vim-colors-solarized-brown"]
+	path = vim/bundle/vim-colors-solarized-brown
+	url = https://github.com/ajacksified/vim-colors-solarized-brown.git
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = http://github.com/scrooloose/nerdtree.git
+[submodule "vim/bundle/molokai.vim"]
+	path = vim/bundle/molokai.vim
+	url = https://github.com/mrtazz/molokai.vim.git
+[submodule "vim/bundle/pyflakes-vim"]
+	path = vim/bundle/pyflakes-vim
+	url = git://github.com/kevinw/pyflakes-vim.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim/bundle/vim-arcanist"]
+	path = vim/bundle/vim-arcanist
+	url = https://github.com/phleet/vim-arcanist.git
+[submodule "vim/bundle/vim-colors-solarized"]
+	path = vim/bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/bundle/vim-dispatch"]
+	path = vim/bundle/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+[submodule "vim/bundle/vim-fugitive"]
+	path = vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/bundle/vim-json"]
+	path = vim/bundle/vim-json
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/bundle/vim-powerline"]
+	path = vim/bundle/vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/bundle/vim-surround"]
+	path = vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git

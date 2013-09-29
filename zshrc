@@ -12,6 +12,10 @@ if [ -f ~/.zsh-shortcuts ]; then
   source ~/.zsh-shortcuts
 fi
 
+if [ -f ~/.zsh-config ]; then
+  source ~/.zsh-config
+fi
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -50,8 +54,6 @@ function git_prompt_info() {
 __git_files () { 
   _wanted files expl 'local files' _files 
 }
-
-[[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && source ~/.autojump/etc/profile.d/autojump.zsh
 
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
