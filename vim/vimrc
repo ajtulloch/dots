@@ -116,3 +116,14 @@ inore <Tab> <C-X><C-U>
 autocmd QuickFixCmdPost *grep* cwindow
 
 set shell=zsh
+
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
+
+" Latex
+let g:tex_flavor = "latex"
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_ViewRule_pdf = 'Preview' 
