@@ -1,23 +1,35 @@
-set autoread
-set hidden
-set ttyfast
-set showmatch
-set incsearch
-set hlsearch
-
 call pathogen#infect()
+
 syntax enable
-" let g:solarized_termcolors=256
+
 set background=dark
 set t_Co=256
 colorscheme solarized
 
-set tags=tags;/
-
-set shiftwidth=2
+set autoread
+set cursorline  				" highlight current line
 set expandtab
-set tabstop=2
+set hidden
+set history=1000  				" Store a ton of history (default is 20)
+set hlsearch
+set ignorecase "Ignore case in search 
+set incsearch
+set nu  "Line numbering
+set pastetoggle=<F2>
+set path+=.; 
+set shiftwidth=2
+set showmatch
+set showmode                   	" display the current mode
+set smartcase "Unless caps are used
 set softtabstop=2
+set spell 		 	        	" spell checking on
+set tabstop=2
+set tags=tags;/
+set ttyfast
+set virtualedit=onemore 	   	" allow for cursor beyond last character
+set backspace=indent,eol,start
+
+:nmap ; :
 
 filetype plugin indent on
 
@@ -32,23 +44,13 @@ match OverLength /\%81v.\+/
 syn match tab display "\t"
 hi link tab Error
 
-" Line numbering, ignore case in search unless caps used
-" show list of options for tab completion
-set nu  
-set ignorecase
-set smartcase
-" set wildmenu
-" set wildmode=longest,full
-" set complete-=i
-set path+=.;
-
 " Command line information
 if has('cmdline_info')
 	set ruler                  	" show the ruler
 	set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " a ruler on steroids
 	set showcmd                	" show partial commands in status line and
-								" selected characters/lines in visual mode
 endif
+
 " Statusline
 if has('statusline')
   set laststatus=2
@@ -62,42 +64,6 @@ if has('statusline')
   "set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
 
-" Colours
-set gfn=Monaco:h12
-
-set history=1000  				" Store a ton of history (default is 20)
-set spell 		 	        	" spell checking on
-set virtualedit=onemore 	   	" allow for cursor beyond last character
-
-set showmode                   	" display the current mode
-set cursorline  				" highlight current line
-
-set hidden "Allows for ctags without not saving
-
-set pastetoggle=<F2>
-
-" set mouse=a
-" set ttymouse=xterm
-
-" Lets ctags work for XHP
-autocmd FileType php setlocal iskeyword+=:,- iskeyword-=<
-
-"JSON highlighting"
-
-" Map ; to :
-:nmap ; :
-
-" Add highlighting for function definition in C++
-function! EnhanceCppSyntax()
-  syn match cppFuncDef "::\~\?\zs\h\w*\ze([^)]*\()\s*\(const\)\?\)\?$"
-  hi def link cppFuncDef Special
-endfunction
-
-" Arc Inline
-command Ai ArcInlines
-
-autocmd Syntax cpp call EnhanceCppSyntax()
-
 "Syntastic fixes
 
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['python', 'php', 'c++'], 'passive_filetypes': [] }
@@ -109,9 +75,7 @@ nnoremap <Left> <C-w>h
 nnoremap <Up> <C-w>k
 nnoremap <Down> <C-w>j
 
-im <Tab> <C-X><C-U>
-inore <Tab> <C-X><C-U>
-
+" Pop Ggrep into a quickfix
 autocmd QuickFixCmdPost *grep* cwindow
 
 set shell=zsh
@@ -132,11 +96,9 @@ let g:Tex_ViewRule_pdf = 'Preview'
 " Rust
 filetype off
 filetype plugin indent off
-set runtimepath+=$GOPATH/src/github.com/ajtulloch/decisiontrees/rust-0.8/src/etc/vim
+set runtimepath+=$RUSTPATH/src/etc/vim
 filetype plugin indent on
 syntax on
-
-set backspace=indent,eol,start
 
 " AutoCompletion
 set completeopt-=preview
@@ -145,4 +107,3 @@ autocmd FileType *
   \ if &omnifunc != '' |
   \   call SuperTabChain(&omnifunc, '<c-p>') |
   \ endif
-

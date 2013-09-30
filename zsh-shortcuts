@@ -5,6 +5,7 @@ if [ -f /etc/zshrc ]; then
 fi
 
 # Personal
+alias vrc='vim ~/.vimrc'
 alias st='git status'
 alias br='git branch'
 alias gri='git rebase -i'
