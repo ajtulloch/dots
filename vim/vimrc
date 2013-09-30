@@ -39,7 +39,7 @@ set ignorecase
 set smartcase
 " set wildmenu
 " set wildmode=longest,full
-set complete-=i
+" set complete-=i
 set path+=.;
 
 " Command line information
@@ -103,7 +103,6 @@ autocmd Syntax cpp call EnhanceCppSyntax()
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['python', 'php', 'c++'], 'passive_filetypes': [] }
 " let g:pymode_lint_message = 0
 
-
 " Remap arrows to split navigation
 nnoremap <Right> <C-w>l
 nnoremap <Left> <C-w>h
@@ -117,9 +116,11 @@ autocmd QuickFixCmdPost *grep* cwindow
 
 set shell=zsh
 
+" GoLang
 filetype off
 filetype plugin indent off
 set runtimepath+=$GOROOT/misc/vim
+set runtimepath+=$GOPATH/src/github.com/golang/lint/misc/vim
 filetype plugin indent on
 syntax on
 
@@ -127,3 +128,21 @@ syntax on
 let g:tex_flavor = "latex"
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_ViewRule_pdf = 'Preview' 
+
+" Rust
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOPATH/src/github.com/ajtulloch/decisiontrees/rust-0.8/src/etc/vim
+filetype plugin indent on
+syntax on
+
+set backspace=indent,eol,start
+
+" AutoCompletion
+set completeopt-=preview
+let g:SuperTabDefaultCompletionType = '<c-x><c-u>'
+autocmd FileType *
+  \ if &omnifunc != '' |
+  \   call SuperTabChain(&omnifunc, '<c-p>') |
+  \ endif
+

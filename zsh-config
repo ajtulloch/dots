@@ -1,9 +1,28 @@
-export PHABRICATORPATH=~/Code/phabricator
 export EDITOR=vim
-export GOPATH=~/Code/go
-export GOROOT=`brew --prefix`/go
-export PATH="/usr/local/bin:$PATH"
-export PATH=$PATH:$GOPATH/bin
+
+# Phabricator
+export PHABRICATORPATH=~/Code/phabricator
 export PATH=$PATH:$PHABRICATORPATH/arcanist/bin
 
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+# LLVM
+export LLVMPATH=~/Code/llvm-project
+export PATH=$LLVMPATH/build/bin:$PATH
+
+# GoLang
+export GOPATH=~/Code/go
+export GOROOT=`brew --prefix`/go
+export PATH=$PATH:$GOPATH/bin
+
+# Homebrew, etc.
+export PATH=/usr/local/bin:$PATH
+export PATH=~/Code/bin/bin:$PATH
+
+# Rust, etc.
+
+# Cuda
+export PATH=/Developer/NVIDIA/CUDA-5.5/bin:$PATH
+export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-5.5/lib:$DYLD_LIBRARY_PATH
+
+
+# RVM
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
