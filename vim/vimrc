@@ -100,10 +100,12 @@ set runtimepath+=$RUSTPATH/src/etc/vim
 filetype plugin indent on
 syntax on
 
-" AutoCompletion
 set completeopt-=preview
-let g:SuperTabDefaultCompletionType = '<c-x><c-u>'
-autocmd FileType *
-  \ if &omnifunc != '' |
-  \   call SuperTabChain(&omnifunc, '<c-p>') |
-  \ endif
+let g:SuperTabDefaultCompletionType = "context"
+
+" AutoCompletion
+" let g:SuperTabDefaultCompletionType = '<c-x><c-u>'
+" autocmd FileType *
+"   \ if &omnifunc != '' |
+"   \   call SuperTabChain(&omnifunc, '<c-p>') |
+"   \ endif

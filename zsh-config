@@ -5,8 +5,8 @@ export PHABRICATORPATH=~/Code/phabricator
 export PATH=$PATH:$PHABRICATORPATH/arcanist/bin
 
 # LLVM
-export LLVMPATH=~/Code/llvm-project
-export PATH=$LLVMPATH/build/bin:$PATH
+# export LLVMPATH=~/Code/llvm-project
+# export PATH=$LLVMPATH/build/bin:$PATH
 
 # GoLang
 export GOPATH=~/Code/go
@@ -20,9 +20,11 @@ export PATH=~/Code/bin/bin:$PATH
 # Rust, etc.
 
 # Cuda
-export PATH=/Developer/NVIDIA/CUDA-5.5/bin:$PATH
-export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-5.5/lib:$DYLD_LIBRARY_PATH
+# export PATH=/Developer/NVIDIA/CUDA-5.5/bin:$PATH
+# export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-5.5/lib:$DYLD_LIBRARY_PATH
 
+# Haskell
+export PATH=~/.cabal/bin:$PATH
 
 # RVM
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

@@ -9,6 +9,7 @@
   st = status
   br = branch
   lg = log --graph --pretty=format:'%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
+  amend = commit --amend
 
 [user]
 	name = Andrew Tulloch
@@ -27,3 +28,5 @@
 
 [credential]
 	helper = osxkeychain
+[commit]
+	template = /Users/tulloch/.gitcommit.template
