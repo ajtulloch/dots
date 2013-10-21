@@ -9,8 +9,8 @@ alias vrc='vim ~/.vimrc'
 alias st='git status'
 alias br='git branch'
 alias gri='git rebase -i'
-alias gdn='git diff HEAD\^ --name-only'
-alias gdn='git diff HEAD\^ --name-only'
+alias gdn='git diff HEAD~ --name-only'
+alias gdn='git diff HEAD~ --name-only'
 alias gaa='git add . && git commit --amend -C HEAD'
 alias vgdn='vim -O `gdn | grep -v __init__`'
 alias ls='ls --color=auto'
@@ -27,3 +27,4 @@ alias tma='tmux attach -d'
 export LC_ALL=en_US.utf-8 
 export LANG="$LC_ALL" 
 
+alias xelatexmk='latexmk -pvc -pdf -xelatex'

@@ -78,4 +78,17 @@ __pycache__
 
 ######################
 ## Emacs
-\#*#
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
+
+.DS_Store

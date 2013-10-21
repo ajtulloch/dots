@@ -1031,6 +1031,8 @@
 	<true/>
 	<key>MaxVertically</key>
 	<false/>
+	<key>NSFontPanelAttributes</key>
+	<string>1, 4</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/Code/solarized/iterm2-colors-solarized</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -1057,7 +1059,7 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>269 162 924 485 0 0 1440 878 </string>
+	<string>269 153 924 485 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 4 1440 874 0 0 1440 878 </string>
 	<key>New Bookmarks</key>
@@ -1779,7 +1781,7 @@
 			<key>Use Canonical Parser</key>
 			<false/>
 			<key>Use Italic Font</key>
-			<false/>
+			<true/>
 			<key>Vertical Spacing</key>
 			<real>1</real>
 			<key>Visual Bell</key>
@@ -1856,7 +1858,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2013-09-29T00:34:35Z</date>
+	<date>2013-10-07T17:56:11Z</date>
 	<key>SavePasteHistory</key>
 	<true/>
 	<key>Show Toolbelt</key>
