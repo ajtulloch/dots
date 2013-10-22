@@ -75,8 +75,9 @@
   (add-hook 'LaTeX-mode-hook (lambda ()
                                (TeX-run-style-hooks "amsmath" "amsthm" "latex2e")))
   (add-hook 'LaTeX-mode-hook (lambda ()
+                               (add-hook 'find-file-hook 'TeX-fold-buffer t)
                                (TeX-fold-mode 1)))
-  (add-hook 'find-file-hook 'TeX-fold-buffer t)
+
   (add-hook 'LaTeX-mode-hook 'electric-pair-mode)
   (add-hook 'LaTeX-mode-hook 'rainbow-delimiters-mode)
   (setq TeX-electric-sub-and-superscript t)
@@ -93,6 +94,9 @@
   (setq-default TeX-master nil) 
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   (setq reftex-plug-into-AUCTeX t)
+  (setq TeX-view-program-list '(("OS X Preview" "open %o")))
+  (setq TeX-view-program-selection '((output-pdf "OS X Preview")))
+
   (setq TeX-parse-self t)
   (setq TeX-auto-save t))
 
