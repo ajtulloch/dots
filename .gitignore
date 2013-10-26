@@ -6,4 +6,5 @@ emacs/backups/
 emacs/elpa/archives/
 emacs/eshell/history
 emacs/eshell/
+emacs/eshell/lastdir
 emacs/places

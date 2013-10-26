@@ -77,7 +77,9 @@
   (add-hook 'LaTeX-mode-hook (lambda ()
                                (add-hook 'find-file-hook 'TeX-fold-buffer t)
                                (TeX-fold-mode 1)))
-
+  (add-hook 'LaTeX-mode-hook
+            '(lambda ()
+               (define-key LaTeX-mode-map (kbd "$") 'self-insert-command)))
   (add-hook 'LaTeX-mode-hook 'electric-pair-mode)
   (add-hook 'LaTeX-mode-hook 'rainbow-delimiters-mode)
   (setq TeX-electric-sub-and-superscript t)
