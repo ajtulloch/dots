@@ -58,3 +58,6 @@ HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt appendhistory interactive_comments hist_ignore_dups inc_append_history extended_history
+
+# OPAM configuration
+. /Users/tulloch/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

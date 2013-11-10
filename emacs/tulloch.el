@@ -19,26 +19,33 @@
   (global-set-key "\C-ca" 'org-agenda))
 
 (defun haskell-config ()
-  (add-to-list `exec-path "~/.cabal/bin")
-  (autoload 'ghc-init "ghc" nil t)
-  (add-hook 'haskell-mode-hook (lambda () (ghc-init)))) 
+  (setq haskell-stylish-on-save t)
+  (setq haskell-font-lock-symbols t)) 
 
 (defun shortcuts-config ()
-  (global-set-key "\C-x\C-m" 'execute-extended-command)
-  (global-set-key "\C-c\C-m" 'execute-extended-command)
+  (smex-initialize)
+  (global-set-key "\C-x\C-m" 'smex)
+  (global-set-key "\C-c\C-m" 'smex)
+  
   (global-set-key "\C-w" 'backward-kill-word)
   (global-set-key "\C-c\C-g" 'magit-status)
   (global-set-key "\C-x\C-k" 'kill-region)
   (global-set-key "\C-c\C-k" 'kill-region)
 
   (defalias 'qrr 'query-replace-regexp)
-  (global-set-key [f5] 'call-last-kbd-macro))
+  (global-set-key [f5] 'call-last-kbd-macro)
+  (global-set-key [f7] 'compile)
+  (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode)))
+
+(defun markdown-config ()  (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+  (add-hook 'markdown-mode 'longlines-mode))
 
 (defun style-config ()
   (require 'color-theme-solarized)
   (color-theme-solarized-dark)
   (setq linum-format "%2d ")
-
   (global-linum-mode))
 
 (defun clojure-config ()
@@ -71,11 +78,20 @@
 
   (add-hook 'nrepl-mode-hook 'paredit-mode))
 
+(defun c++-config ()
+  (require 'google-c-style)
+  (add-hook 'c-mode-common-hook 'google-set-c-style)
+  ;;
+  ;; If you want the RETURN key to go to the next line and space over
+  ;; to the right place, add this to your .emacs right after the
+  ;; load-file:
+  ;;
+  (add-hook 'c-mode-common-hook 'google-make-newline-indent))
+
 (defun latex-config ()
   (add-hook 'LaTeX-mode-hook (lambda ()
                                (TeX-run-style-hooks "amsmath" "amsthm" "latex2e")))
   (add-hook 'LaTeX-mode-hook (lambda ()
-                               (add-hook 'find-file-hook 'TeX-fold-buffer t)
                                (TeX-fold-mode 1)))
   (add-hook 'LaTeX-mode-hook
             '(lambda ()
@@ -100,16 +116,55 @@
   (setq TeX-view-program-selection '((output-pdf "OS X Preview")))
 
   (setq TeX-parse-self t)
-  (setq TeX-auto-save t))
+  (setq TeX-auto-save t)
+  (setq LaTeX-command-style '(("" "%(PDF)%(latex) -file-line-error %S%(PDFout)"))))
+
+(defun global-config () 
+  (require 'projectile)
+  (require 'flx-ido)
+  (global-flycheck-mode)
+  (projectile-global-mode)
+  (ido-mode 1)
+  (ido-everywhere 1)
+  (flx-ido-mode 1)
+  ;; disable ido faces to see flx highlights.
+  (require 'ess-site)
+  (require 'yasnippet) ;; not yasnippet-bundle
+  (yas-global-mode 1)
+  (setq auto-save-file-name-transforms
+        `((".*" ,temporary-file-directory t)))
+
+
+  (setq ido-use-faces nil))
+
+(defun iwb ()
+  "indent whole buffer"
+  (interactive)
+  (delete-trailing-whitespace)
+  (indent-region (point-min) (point-max) nil)
+  (untabify (point-min) (point-max)))
+
+
+(defun iy-tab-noconflict ()
+  (let ((command (key-binding [tab]))) ; remember command
+    (local-unset-key [tab]) ; unset from (kbd "<tab>")
+    (local-set-key (kbd "TAB") command))) ; bind to (kbd "TAB")
+(add-hook 'ruby-mode-hook 'iy-ac-tab-noconflict)
+(add-hook 'markdown-mode-hook 'iy-ac-tab-noconflict)
+(add-hook 'org-mode-hook 'iy-ac-tab-noconflict)
 
 (add-hook 'after-init-hook 
           (lambda () 
             (progn
               (require 'auto-complete-config)
               (ac-config-default)
+              (global-config)
               (golang-config)
               (orgmode-config)
               (clojure-config)
+              (haskell-config)
               (shortcuts-config)
+              (markdown-config)
+              (c++-config)
               (style-config)
               (latex-config))))

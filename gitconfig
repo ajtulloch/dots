@@ -31,3 +31,7 @@
 	helper = osxkeychain
 [commit]
 	template = /Users/tulloch/.gitcommit.template
+
+[include]
+        path = ~/.gitconfig-private
+        

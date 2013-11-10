@@ -4,8 +4,9 @@
 
 
 ;;;### (autoloads (ghc-core-mode ghc-core-create-core) "ghc-core"
-;;;;;;  "ghc-core.el" (21069 43567 0 0))
-;;; Generated autoloads from ghc-core.el
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/ghc-core.el"
+;;;;;;  "10868ee49a90161e04dea52baf42f30a")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/ghc-core.el
 
 (autoload 'ghc-core-create-core "ghc-core" "\
 Compile and load the current buffer as tidy core.
@@ -22,8 +23,9 @@ Major mode for GHC Core files.
 ;;;***
 
 ;;;### (autoloads (haskell-align-imports) "haskell-align-imports"
-;;;;;;  "haskell-align-imports.el" (21069 43567 0 0))
-;;; Generated autoloads from haskell-align-imports.el
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-align-imports.el"
+;;;;;;  "b49b2f6d39baa22862772fa3e6812a8f")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-align-imports.el
 
 (autoload 'haskell-align-imports "haskell-align-imports" "\
 Align all the imports in the buffer.
@@ -32,9 +34,9 @@ Align all the imports in the buffer.
 
 ;;;***
 
-;;;### (autoloads (haskell-c-mode) "haskell-c" "haskell-c.el" (21069
-;;;;;;  43567 0 0))
-;;; Generated autoloads from haskell-c.el
+;;;### (autoloads (haskell-c-mode) "haskell-c" "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-c.el"
+;;;;;;  "a62477cb742c7eaccfe94ef66171b470")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-c.el
 
 (add-to-list 'auto-mode-alist '("\\.hsc\\'" . haskell-c-mode))
 
@@ -46,8 +48,9 @@ Major mode for Haskell FFI files.
 ;;;***
 
 ;;;### (autoloads (haskell-cabal-get-dir haskell-cabal-mode) "haskell-cabal"
-;;;;;;  "haskell-cabal.el" (21069 43567 0 0))
-;;; Generated autoloads from haskell-cabal.el
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-cabal.el"
+;;;;;;  "738a5054d9d30ee1d56132d963d2027b")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-cabal.el
 
 (add-to-list 'auto-mode-alist '("\\.cabal\\'" . haskell-cabal-mode))
 
@@ -65,9 +68,9 @@ Get the Cabal dir for a new project. Various ways of figuring this out,
 ;;;***
 
 ;;;### (autoloads (haskell-decl-scan-mode turn-on-haskell-decl-scan
-;;;;;;  haskell-ds-create-imenu-index) "haskell-decl-scan" "haskell-decl-scan.el"
-;;;;;;  (21069 43567 0 0))
-;;; Generated autoloads from haskell-decl-scan.el
+;;;;;;  haskell-ds-create-imenu-index) "haskell-decl-scan" "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-decl-scan.el"
+;;;;;;  "6ee2d7ca8ebe89bed8435775f7208aae")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-decl-scan.el
 
 (eval-when-compile (condition-case nil (require 'imenu) (error nil)) (unless (eq (syntax-table) (with-syntax-table (syntax-table) (syntax-table))) (defmacro with-syntax-table (table &rest body) "Evaluate BODY with syntax table of current buffer set to a copy of TABLE.\nThe syntax table of the current buffer is saved, BODY is evaluated, and the\nsaved table is restored, even in case of an abnormal exit.\nValue is what BODY returns." (let ((old-table (make-symbol "table")) (old-buffer (make-symbol "buffer"))) `(let ((,old-table (syntax-table)) (,old-buffer (current-buffer))) (unwind-protect (progn (set-syntax-table ,table) ,@body) (save-current-buffer (set-buffer ,old-buffer) (set-syntax-table ,old-table))))))))
 
@@ -130,9 +133,9 @@ Invokes `haskell-decl-scan-mode-hook'.
 ;;;***
 
 ;;;### (autoloads (haskell-doc-show-type haskell-doc-current-info
-;;;;;;  haskell-doc-mode) "haskell-doc" "haskell-doc.el" (21069 43567
-;;;;;;  0 0))
-;;; Generated autoloads from haskell-doc.el
+;;;;;;  haskell-doc-mode) "haskell-doc" "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-doc.el"
+;;;;;;  "af0cc19dac4e323a720661b8f79348f0")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-doc.el
 
 (autoload 'haskell-doc-mode "haskell-doc" "\
 Enter `haskell-doc-mode' for showing fct types in the echo area.
@@ -160,8 +163,9 @@ current buffer.
 ;;;***
 
 ;;;### (autoloads (haskell-font-lock-choose-keywords) "haskell-font-lock"
-;;;;;;  "haskell-font-lock.el" (21069 43567 0 0))
-;;; Generated autoloads from haskell-font-lock.el
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-font-lock.el"
+;;;;;;  "a956e826f27ebca722f993fdec857b6f")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-font-lock.el
 
 (autoload 'haskell-font-lock-choose-keywords "haskell-font-lock" "\
 
@@ -171,8 +175,9 @@ current buffer.
 ;;;***
 
 ;;;### (autoloads (haskell-indent-mode turn-on-haskell-indent) "haskell-indent"
-;;;;;;  "haskell-indent.el" (21069 43567 0 0))
-;;; Generated autoloads from haskell-indent.el
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-indent.el"
+;;;;;;  "5d0aab62a30b03c979fbe856fd829dd3")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-indent.el
 
 (autoload 'turn-on-haskell-indent "haskell-indent" "\
 Turn on ``intelligent'' Haskell indentation mode.
@@ -208,9 +213,9 @@ Invokes `haskell-indent-hook' if not nil.
 ;;;***
 
 ;;;### (autoloads (turn-on-haskell-indentation haskell-indentation-mode)
-;;;;;;  "haskell-indentation" "haskell-indentation.el" (21069 43567
-;;;;;;  0 0))
-;;; Generated autoloads from haskell-indentation.el
+;;;;;;  "haskell-indentation" "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-indentation.el"
+;;;;;;  "cfdcdab54a028a0a096b80f066e2bb2d")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-indentation.el
 
 (autoload 'haskell-indentation-mode "haskell-indentation" "\
 Haskell indentation mode that deals with the layout rule.
@@ -229,9 +234,9 @@ Turn on the haskell-indentation minor mode.
 
 ;;;### (autoloads (haskell-interactive-mode-reset-error haskell-interactive-mode-echo
 ;;;;;;  haskell-interactive-switch haskell-interactive-bring haskell-interactive-mode)
-;;;;;;  "haskell-interactive-mode" "haskell-interactive-mode.el"
-;;;;;;  (21069 43567 0 0))
-;;; Generated autoloads from haskell-interactive-mode.el
+;;;;;;  "haskell-interactive-mode" "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-interactive-mode.el"
+;;;;;;  "364b18a0a08e5ec27c198a2dc78ab562")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-interactive-mode.el
 
 (autoload 'haskell-interactive-mode "haskell-interactive-mode" "\
 Interactive mode for Haskell.
@@ -266,9 +271,9 @@ Reset the error cursor position.
 
 ;;;***
 
-;;;### (autoloads (haskell-menu) "haskell-menu" "haskell-menu.el"
-;;;;;;  (21069 43567 0 0))
-;;; Generated autoloads from haskell-menu.el
+;;;### (autoloads (haskell-menu) "haskell-menu" "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-menu.el"
+;;;;;;  "bbaaac2651ef7cb1d42a5d90bf8d3417")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-menu.el
 
 (autoload 'haskell-menu "haskell-menu" "\
 Launch the Haskell sessions menu.
@@ -279,8 +284,9 @@ Launch the Haskell sessions menu.
 
 ;;;### (autoloads (haskell-hayoo haskell-hoogle literate-haskell-mode
 ;;;;;;  haskell-mode haskell-customize haskell-mode-view-news haskell-version)
-;;;;;;  "haskell-mode" "haskell-mode.el" (21069 43567 0 0))
-;;; Generated autoloads from haskell-mode.el
+;;;;;;  "haskell-mode" "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-mode.el"
+;;;;;;  "3390449882d7ebe48ae11c7cec124bdb")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-mode.el
 
 (autoload 'haskell-version "haskell-mode" "\
 Show the `haskell-mode` version in the echo area.
@@ -373,9 +379,9 @@ Do a Hayoo search for QUERY.
 ;;;***
 
 ;;;### (autoloads (haskell-move-nested-left haskell-move-nested-right
-;;;;;;  haskell-move-nested) "haskell-move-nested" "haskell-move-nested.el"
-;;;;;;  (21069 43567 0 0))
-;;; Generated autoloads from haskell-move-nested.el
+;;;;;;  haskell-move-nested) "haskell-move-nested" "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-move-nested.el"
+;;;;;;  "94a786b9a4152665a77bae57f17e6968")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-move-nested.el
 
 (autoload 'haskell-move-nested "haskell-move-nested" "\
 Shift the nested off-side-rule block adjacent to point by COLS columns to the right.
@@ -408,9 +414,9 @@ of the region instead.
 ;;;***
 
 ;;;### (autoloads (haskell-navigate-imports-return haskell-navigate-imports-go
-;;;;;;  haskell-navigate-imports) "haskell-navigate-imports" "haskell-navigate-imports.el"
-;;;;;;  (21069 43567 0 0))
-;;; Generated autoloads from haskell-navigate-imports.el
+;;;;;;  haskell-navigate-imports) "haskell-navigate-imports" "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-navigate-imports.el"
+;;;;;;  "45258af88b4109d0c1b346acf0b89df4")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-navigate-imports.el
 
 (autoload 'haskell-navigate-imports "haskell-navigate-imports" "\
 Cycle the Haskell import lines or return to point (with prefix arg).
@@ -434,8 +440,9 @@ Return to the non-import point we were at before going to the module list.
 ;;;;;;  haskell-process-cabal-build haskell-process-load-or-reload
 ;;;;;;  haskell-process-reload-file haskell-process-load-file haskell-process-do-info
 ;;;;;;  haskell-process-do-type haskell-process-generate-tags) "haskell-process"
-;;;;;;  "haskell-process.el" (21069 43567 0 0))
-;;; Generated autoloads from haskell-process.el
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-process.el"
+;;;;;;  "1a529b77bf9e39a212ab4fea945d7f27")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-process.el
 
 (autoload 'haskell-process-generate-tags "haskell-process" "\
 Regenerate the TAGS table.
@@ -491,8 +498,9 @@ Get the current process from the current session.
 
 ;;;### (autoloads (haskell-session-process haskell-session haskell-session-maybe
 ;;;;;;  haskell-session-installed-modules haskell-session-all-modules)
-;;;;;;  "haskell-session" "haskell-session.el" (21069 43567 0 0))
-;;; Generated autoloads from haskell-session.el
+;;;;;;  "haskell-session" "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-session.el"
+;;;;;;  "e312bff9449334b969389c7228c38bf8")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-session.el
 
 (autoload 'haskell-session-all-modules "haskell-session" "\
 Get all modules -- installed or in the current project.
@@ -524,9 +532,9 @@ Get the session process.
 ;;;***
 
 ;;;### (autoloads (haskell-show-parse haskell-show-parse-and-insert
-;;;;;;  haskell-show-replace) "haskell-show" "haskell-show.el" (21069
-;;;;;;  43567 0 0))
-;;; Generated autoloads from haskell-show.el
+;;;;;;  haskell-show-replace) "haskell-show" "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-show.el"
+;;;;;;  "c64bdeff2268f400654011887d2159cf")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-show.el
 
 (autoload 'haskell-show-replace "haskell-show" "\
 Replace the given region containing a Show value with a pretty
@@ -548,8 +556,9 @@ Parse the given input into a tree.
 ;;;***
 
 ;;;### (autoloads (turn-on-haskell-simple-indent) "haskell-simple-indent"
-;;;;;;  "haskell-simple-indent.el" (21069 43567 0 0))
-;;; Generated autoloads from haskell-simple-indent.el
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-simple-indent.el"
+;;;;;;  "ee8318082a1275c7f5fb7821bb638976")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-simple-indent.el
 
 (autoload 'turn-on-haskell-simple-indent "haskell-simple-indent" "\
 Set `indent-line-function' to a simple indentation function.
@@ -565,9 +574,9 @@ Use `haskell-simple-indent-version' to find out what version this is.
 
 ;;;***
 
-;;;### (autoloads (haskell-sort-imports) "haskell-sort-imports" "haskell-sort-imports.el"
-;;;;;;  (21069 43567 0 0))
-;;; Generated autoloads from haskell-sort-imports.el
+;;;### (autoloads (haskell-sort-imports) "haskell-sort-imports" "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-sort-imports.el"
+;;;;;;  "e875e007f4693ca38fbbedee69c748d7")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-sort-imports.el
 
 (autoload 'haskell-sort-imports "haskell-sort-imports" "\
 Sort the import list at the point.
@@ -577,8 +586,9 @@ Sort the import list at the point.
 ;;;***
 
 ;;;### (autoloads (haskell-is-prefix-of haskell-string-take haskell-trim)
-;;;;;;  "haskell-string" "haskell-string.el" (21069 43567 0 0))
-;;; Generated autoloads from haskell-string.el
+;;;;;;  "haskell-string" "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-string.el"
+;;;;;;  "22cce3a6ed5c868db99c7b1c5d3d6bd9")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-string.el
 
 (autoload 'haskell-trim "haskell-string" "\
 
@@ -598,8 +608,9 @@ Is x string a prefix of y string?
 ;;;***
 
 ;;;### (autoloads (turn-on-haskell-unicode-input-method) "haskell-unicode-input-method"
-;;;;;;  "haskell-unicode-input-method.el" (21069 43567 0 0))
-;;; Generated autoloads from haskell-unicode-input-method.el
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-unicode-input-method.el"
+;;;;;;  "e9818e1b5a07e54464e8e90b694e5019")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-unicode-input-method.el
 
 (autoload 'turn-on-haskell-unicode-input-method "haskell-unicode-input-method" "\
 Set input method `haskell-unicode'.
@@ -609,9 +620,9 @@ See Info node `Unicode(haskell-mode)' for more details.
 
 ;;;***
 
-;;;### (autoloads (haskell-yas-complete) "haskell-yas" "haskell-yas.el"
-;;;;;;  (21069 43567 0 0))
-;;; Generated autoloads from haskell-yas.el
+;;;### (autoloads (haskell-yas-complete) "haskell-yas" "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-yas.el"
+;;;;;;  "613e7a3705a8722a6d26e052ce83b6c8")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-yas.el
 
 (autoload 'haskell-yas-complete "haskell-yas" "\
 
@@ -624,8 +635,9 @@ See Info node `Unicode(haskell-mode)' for more details.
 ;;;;;;  inferior-haskell-info inferior-haskell-kind inferior-haskell-type
 ;;;;;;  inferior-haskell-send-decl inferior-haskell-load-and-run
 ;;;;;;  inferior-haskell-load-file switch-to-haskell) "inf-haskell"
-;;;;;;  "inf-haskell.el" (21069 43567 0 0))
-;;; Generated autoloads from inf-haskell.el
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/inf-haskell.el"
+;;;;;;  "cb51a28f9a5e361657db0313f324c9a4")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/haskell-mode-13.7/inf-haskell.el
 
 (defalias 'run-haskell 'switch-to-haskell)
 
@@ -692,9 +704,34 @@ we load it.
 
 ;;;***
 
-;;;### (autoloads nil nil ("haskell-checkers.el" "haskell-compat.el"
-;;;;;;  "haskell-mode-pkg.el" "haskell-package.el") (21069 43567
-;;;;;;  88621 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/haskell-mode-13.7/ghc-core.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-align-imports.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-c.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-cabal.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-checkers.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-compat.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-decl-scan.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-doc.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-font-lock.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-indent.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-indentation.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-interactive-mode.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-menu.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-mode-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-mode.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-move-nested.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-navigate-imports.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-package.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-process.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-session.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-show.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-simple-indent.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-sort-imports.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-string.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-unicode-input-method.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/haskell-yas.el"
+;;;;;;  "../../../../../.emacs.d/elpa/haskell-mode-13.7/inf-haskell.el")
+;;;;;;  (21103 25476 853510 0))
 
 ;;;***
 

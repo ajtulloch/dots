@@ -92,3 +92,8 @@ tramp
 *_archive
 
 .DS_Store
+
+
+#######################
+## Haskell
+*.hi
