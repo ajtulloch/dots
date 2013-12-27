@@ -32,6 +32,7 @@
 *.vrb
 *.xdy
 *.tdo
+_region_.tex
 
 ######################
 ## C++
@@ -63,7 +64,6 @@ dist
 build
 eggs
 parts
-bin
 var
 sdist
 develop-eggs
@@ -86,6 +86,7 @@ __pycache__
 auto-save-list
 tramp
 .\#*
+flycheck-
 
 # Org-mode
 .org-id-locations
@@ -94,6 +95,12 @@ tramp
 .DS_Store
 
 
+
 #######################
 ## Haskell
 *.hi
+
+######################
+## R
+*.RData
+*.RHistory

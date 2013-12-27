@@ -31,6 +31,9 @@
   (global-set-key "\C-c\C-g" 'magit-status)
   (global-set-key "\C-x\C-k" 'kill-region)
   (global-set-key "\C-c\C-k" 'kill-region)
+  ;; Never use this function (goal-set-column)
+  (global-unset-key "\C-x\C-n")
+
 
   (defalias 'qrr 'query-replace-regexp)
   (global-set-key [f5] 'call-last-kbd-macro)
@@ -44,18 +47,12 @@
 
 (defun style-config ()
   (require 'color-theme-solarized)
-  (color-theme-solarized-dark)
-  (setq linum-format "%2d ")
-  (global-linum-mode))
+  (color-theme-solarized-dark))
 
 (defun clojure-config ()
-  (add-hook 'clojure-mode-hook
-            (lambda ()
-              (font-lock-mode nil)
-              (clojure-font-lock-setup)
-              (font-lock-mode t)))
-  (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
-  (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+  (require 'cider)
+  (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+
   (eval-after-load "auto-complete"
     '(add-to-list 'ac-modes 'nrepl-mode))
   (add-hook 'clojure-mode-hook 'paredit-mode)
@@ -75,8 +72,7 @@
   (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
   (add-hook 'lisp-interaction-mode-hook 'rainbow-delimiters-mode)
   (add-hook 'scheme-mode-hook 'rainbow-delimiters-mode)
-
-  (add-hook 'nrepl-mode-hook 'paredit-mode))
+)
 
 (defun c++-config ()
   (require 'google-c-style)
@@ -115,6 +111,8 @@
   (setq TeX-view-program-list '(("OS X Preview" "open %o")))
   (setq TeX-view-program-selection '((output-pdf "OS X Preview")))
 
+  
+
   (setq TeX-parse-self t)
   (setq TeX-auto-save t)
   (setq LaTeX-command-style '(("" "%(PDF)%(latex) -file-line-error %S%(PDFout)"))))
@@ -131,11 +129,23 @@
   (require 'ess-site)
   (require 'yasnippet) ;; not yasnippet-bundle
   (yas-global-mode 1)
-  (setq auto-save-file-name-transforms
-        `((".*" ,temporary-file-directory t)))
+  (add-hook 'jade-mode-hook (lambda ()
+                              (setq yas/dont-activate t)))
 
+  ;; disable auto-save and auto-backup
+  (setq auto-save-default nil)
+  (setq make-backup-files nil)
 
   (setq ido-use-faces nil))
+
+(defun python-config ()
+  (require 'nose)
+  (add-hook 'python-mode-hook 'jedi:setup)
+  (setq jedi:setup-keys t)
+  (setq jedi:complete-on-dot t))
+
+(defun r-config ()
+  (setq ess-nuke-trailing-whitespace-p t))
 
 (defun iwb ()
   "indent whole buffer"
@@ -149,9 +159,10 @@
   (let ((command (key-binding [tab]))) ; remember command
     (local-unset-key [tab]) ; unset from (kbd "<tab>")
     (local-set-key (kbd "TAB") command))) ; bind to (kbd "TAB")
-(add-hook 'ruby-mode-hook 'iy-ac-tab-noconflict)
-(add-hook 'markdown-mode-hook 'iy-ac-tab-noconflict)
-(add-hook 'org-mode-hook 'iy-ac-tab-noconflict)
+
+(add-hook 'ruby-mode-hook 'iy-tab-noconflict)
+(add-hook 'markdown-mode-hook 'iy-tab-noconflict)
+(add-hook 'org-mode-hook 'iy-tab-noconflict)
 
 (add-hook 'after-init-hook 
           (lambda () 
@@ -166,5 +177,6 @@
               (shortcuts-config)
               (markdown-config)
               (c++-config)
+              (python-config)
               (style-config)
               (latex-config))))

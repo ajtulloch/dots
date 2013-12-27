@@ -1,37 +1,37 @@
 [core]
-  editor = vim
-	excludesfile = /Users/tulloch/.gitignore.global
-	pager = less -F -X
+        editor = env TERM=xterm-256color emacs -nw
+        excludesfile = /Users/tulloch/.gitignore.global
+        # pager = less -F -X
 
 [alias]
-# Common shortcuts
-  co = checkout
-  ci = commit
-  st = status
-  br = branch
-  lg = log --graph --pretty=format:'%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
-  amend = commit --amend
+        # Common shortcuts
+        co = checkout
+        ci = commit
+        st = status
+        br = branch
+        lg = log --graph --pretty=format:'%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
+        amend = commit --amend
 
 [user]
-	name = Andrew Tulloch
-	email = andrew@tullo.ch
+        name = Andrew Tulloch
+        email = andrew@tullo.ch
 
 [color]
-  diff = auto
-  status = auto
-  branch = auto
+        diff = auto
+        status = auto
+        branch = auto
 
 [log]
-  date = relative
+        date = relative
 
 [diff]
-	algorithm = patience
+        algorithm = patience
 
 [credential]
-	helper = osxkeychain
+        helper = osxkeychain
+
 [commit]
-	template = /Users/tulloch/.gitcommit.template
+        template = /Users/tulloch/.gitcommit.template
 
 [include]
         path = ~/.gitconfig-private
-        

@@ -16,13 +16,14 @@ alias vgdn='vim -O `gdn | grep -v __init__`'
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
 alias gl='git lg'
+alias git='noglob git'
 
 # Emacs
 alias emacs='env TERM=xterm-256color emacs -nw'
 
 alias gfr='git fetch && git rebase origin/master'
 alias gft='git fetch && git rebase trunk'
-alias tma='tmux attach -d'
+alias tma='tmux attach -d -t'
 
 export LC_ALL=en_US.utf-8 
 export LANG="$LC_ALL" 
