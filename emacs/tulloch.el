@@ -1,5 +1,3 @@
-; https://sites.google.com/site/steveyegge2/effective-emacs
-
 (defun golang-config () 
   (add-to-list 'load-path "/usr/local/go/misc/emacs" t)
   (add-to-list 'load-path "~/Code/go/src/github.com/nsf/gocode/emacs" t)
@@ -12,11 +10,19 @@
                             (local-set-key (kbd "\C-ci") 'go-goto-imports)))
   (add-hook 'before-save-hook 'gofmt-before-save))
 
+(defun scala-config ()
+  (setq scala-indent:use-javadoc-style t)
+  (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
+
 (defun orgmode-config ()
   (setq org-default-notes-file "~/notes.org")
   (define-key global-map "\C-cc" 'org-capture)
   (setq org-mobile-directory "~/Dropbox/MobileOrg")
   (global-set-key "\C-ca" 'org-agenda))
+
+(defun javascript-config ()
+  (custom-set-variables '(coffee-tab-width 2))
+  (setq js-indent-level 2))
 
 (defun haskell-config ()
   (setq haskell-stylish-on-save t)
@@ -46,19 +52,38 @@
   (add-hook 'markdown-mode 'longlines-mode))
 
 (defun style-config ()
+  (require 'color-theme)
   (require 'color-theme-solarized)
   (color-theme-solarized-dark))
 
 (defun clojure-config ()
-  (require 'cider)
-  (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
   (eval-after-load "auto-complete"
     '(add-to-list 'ac-modes 'nrepl-mode))
-  (add-hook 'clojure-mode-hook 'paredit-mode)
+
+  (eval-after-load 'clojure-mode
+    '(font-lock-add-keywords
+      'clojure-mode
+      (mapcar
+       (lambda (pair)
+         `(,(car pair)
+           (0 (progn (compose-region
+                      (match-beginning 0) (match-end 0)
+                      ,(cadr pair))
+                     nil))))
+       '(("\\<fn\\>" ?ƒ)
+         ("\\<comp\\>" ?∘)
+         ("\\<partial\\>" ?þ)
+         ("\\<complement\\>" ?¬)))))
+
+
+  (require 'cider)
+  (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+
   (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
   (add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
 
+  (add-hook 'clojure-mode-hook 'paredit-mode)
   (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
   (add-hook 'eval-expression-minibuffer-setup-hook 'paredit-mode)
   (add-hook 'ielm-mode-hook 'paredit-mode)
@@ -71,8 +96,7 @@
   (add-hook 'ielm-mode-hook 'rainbow-delimiters-mode)
   (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
   (add-hook 'lisp-interaction-mode-hook 'rainbow-delimiters-mode)
-  (add-hook 'scheme-mode-hook 'rainbow-delimiters-mode)
-)
+  (add-hook 'scheme-mode-hook 'rainbow-delimiters-mode))
 
 (defun c++-config ()
   (require 'google-c-style)
@@ -82,7 +106,32 @@
   ;; to the right place, add this to your .emacs right after the
   ;; load-file:
   ;;
-  (add-hook 'c-mode-common-hook 'google-make-newline-indent))
+  (add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
+
+  (add-to-list 'load-path (concat "~/.emacs.d/" "AC"))
+  (require 'auto-complete-config)
+  (add-to-list 'ac-dictionary-directories (concat "~/.emacs.d/" "AC/ac-dict"))
+
+  (require 'auto-complete-clang)
+
+  (setq ac-auto-start nil)
+  (setq ac-quick-help-delay 0.5)
+  (ac-set-trigger-key "TAB")
+  (define-key ac-mode-map  [(control tab)] 'auto-complete)
+  (defun my-ac-config ()
+    (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))
+    (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
+    ;; (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)
+    (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)
+    (add-hook 'css-mode-hook 'ac-css-mode-setup)
+    (add-hook 'auto-complete-mode-hook 'ac-common-setup)
+    (global-auto-complete-mode t))
+  (defun my-ac-cc-mode-setup ()
+    (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources)))
+  (add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
+  ;; ac-source-gtags
+  (my-ac-config))
 
 (defun latex-config ()
   (add-hook 'LaTeX-mode-hook (lambda ()
@@ -92,7 +141,7 @@
   (add-hook 'LaTeX-mode-hook
             '(lambda ()
                (define-key LaTeX-mode-map (kbd "$") 'self-insert-command)))
-  (add-hook 'LaTeX-mode-hook 'electric-pair-mode)
+  ;; (add-hook 'LaTeX-mode-hook 'electric-pair-mode)
   (add-hook 'LaTeX-mode-hook 'rainbow-delimiters-mode)
   (setq TeX-electric-sub-and-superscript t)
   (setq TeX-PDF-mode t)
@@ -122,6 +171,9 @@
   (require 'flx-ido)
   (global-flycheck-mode)
   (projectile-global-mode)
+  (electric-layout-mode)
+  (electric-indent-mode)
+  (electric-pair-mode)
   (ido-mode 1)
   (ido-everywhere 1)
   (flx-ido-mode 1)
@@ -160,6 +212,11 @@
     (local-unset-key [tab]) ; unset from (kbd "<tab>")
     (local-set-key (kbd "TAB") command))) ; bind to (kbd "TAB")
 
+(defun emms-setup ()
+  (require 'emms-setup)
+  (emms-standard)
+  (emms-default-players))
+
 (add-hook 'ruby-mode-hook 'iy-tab-noconflict)
 (add-hook 'markdown-mode-hook 'iy-tab-noconflict)
 (add-hook 'org-mode-hook 'iy-tab-noconflict)
@@ -170,13 +227,16 @@
               (require 'auto-complete-config)
               (ac-config-default)
               (global-config)
+              (scala-config)
               (golang-config)
               (orgmode-config)
               (clojure-config)
               (haskell-config)
               (shortcuts-config)
+              (javascript-config)
               (markdown-config)
               (c++-config)
               (python-config)
               (style-config)
               (latex-config))))
+

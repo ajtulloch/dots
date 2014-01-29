@@ -1,6 +1,7 @@
 [core]
         editor = env TERM=xterm-256color emacs -nw
         excludesfile = /Users/tulloch/.gitignore.global
+	deltaBaseCacheLimit = 1G
         # pager = less -F -X
 
 [alias]

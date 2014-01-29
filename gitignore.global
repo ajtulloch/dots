@@ -104,3 +104,8 @@ flycheck-
 ## R
 *.RData
 *.RHistory
+
+######################
+## Scala
+.ensime
+.ensime_lucene/

@@ -9,3 +9,5 @@ emacs/eshell/
 emacs/eshell/lastdir
 emacs/places
 emacs/projectile-bookmarks.eld
+emacs/request/curl-cookie-jaremacs/.rtm-auth-token
+/emacs/.rtm-auth-token
