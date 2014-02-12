@@ -109,3 +109,4 @@ flycheck-
 ## Scala
 .ensime
 .ensime_lucene/
+.ipynb_checkpoints

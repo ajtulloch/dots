@@ -10,6 +10,9 @@
                             (local-set-key (kbd "\C-ci") 'go-goto-imports)))
   (add-hook 'before-save-hook 'gofmt-before-save))
 
+(defun scss-config ()
+  (setq scss-compile-at-save nil))
+
 (defun scala-config ()
   (setq scala-indent:use-javadoc-style t)
   (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
@@ -197,6 +200,9 @@
   (setq jedi:complete-on-dot t))
 
 (defun r-config ()
+  (setq load-path
+        (append '("~/.emacs.d/elpa/polymode"  "~/.emacs.d/elpa/polymode/modes")
+                load-path))
   (setq ess-nuke-trailing-whitespace-p t))
 
 (defun iwb ()
@@ -226,11 +232,13 @@
             (progn
               (require 'auto-complete-config)
               (ac-config-default)
+              (scss-config)
               (global-config)
               (scala-config)
               (golang-config)
               (orgmode-config)
               (clojure-config)
+              (r-config)
               (haskell-config)
               (shortcuts-config)
               (javascript-config)

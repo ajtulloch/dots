@@ -12,6 +12,7 @@ alias gri='git rebase -i'
 alias gdn='git diff HEAD~ --name-only'
 alias gdn='git diff HEAD~ --name-only'
 alias gaa='git add . && git commit --amend -C HEAD'
+
 alias vgdn='vim -O `gdn | grep -v __init__`'
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'

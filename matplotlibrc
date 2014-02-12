@@ -274,7 +274,7 @@ legend.fancybox      : True  # if True, use a rounded box for the
 ### FIGURE
 # See http://matplotlib.sourceforge.net/api/figure_api.html#matplotlib.figure.Figure
 figure.figsize   : 11, 8    # figure size in inches
-#figure.dpi       : 80      # figure dots per inch
+figure.dpi       : 300      # figure dots per inch
 figure.facecolor : 0.85    # figure facecolor; 0.75 is scalar gray
 figure.edgecolor : 0.50   # figure edgecolor
 
@@ -322,7 +322,7 @@ figure.subplot.hspace  : 0.5    # the amount of height reserved for white space 
 # the default savefig params can be different from the display params
 # Eg, you may want a higher resolution, or to make the figure
 # background white
-#savefig.dpi       : 100      # figure dots per inch
+savefig.dpi       : 300      # figure dots per inch
 #savefig.facecolor : white    # figure facecolor when saving
 #savefig.edgecolor : white    # figure edgecolor when saving
 #savefig.extension : auto     # what extension to use for savefig('foo'), or 'auto'
