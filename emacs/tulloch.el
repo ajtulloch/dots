@@ -186,7 +186,13 @@
   (yas-global-mode 1)
   (add-hook 'jade-mode-hook (lambda ()
                               (setq yas/dont-activate t)))
-
+  (add-hook 'org-mode-hook
+            #'(lambda ()
+                (setq yas/fallback-behavior
+                      `(apply ,(lookup-key org-mode-map [tab])))
+                (local-set-key [tab] 'yas/expand)
+                (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
+  
   ;; disable auto-save and auto-backup
   (setq auto-save-default nil)
   (setq make-backup-files nil)
@@ -195,6 +201,7 @@
 
 (defun python-config ()
   (require 'nose)
+  (require 'python-mode)
   (add-hook 'python-mode-hook 'jedi:setup)
   (setq jedi:setup-keys t)
   (setq jedi:complete-on-dot t))
@@ -204,6 +211,19 @@
         (append '("~/.emacs.d/elpa/polymode"  "~/.emacs.d/elpa/polymode/modes")
                 load-path))
   (setq ess-nuke-trailing-whitespace-p t))
+
+(defun electric-indent-ignore-python (char)
+  "Ignore electric indentation for python-mode"
+  (if (equal major-mode 'python-mode)
+      `no-indent'
+    nil))
+(add-hook 'electric-indent-functions 'electric-indent-ignore-python)
+
+;; Enter key executes newline-and-indent
+(defun set-newline-and-indent ()
+  "Map the return key with `newline-and-indent'"
+  (local-set-key (kbd "RET") 'newline-and-indent))
+(add-hook 'python-mode-hook 'set-newline-and-indent)
 
 (defun iwb ()
   "indent whole buffer"
@@ -222,6 +242,18 @@
   (require 'emms-setup)
   (emms-standard)
   (emms-default-players))
+
+(defun comment-or-uncomment-region-or-line ()
+  "Comments or uncomments the region or the current line if there's no active region."
+  (interactive)
+  (let (beg end)
+    (if (region-active-p)
+        (setq beg (region-beginning) end (region-end))
+      (setq beg (line-beginning-position) end (line-end-position)))
+    (comment-or-uncomment-region beg end)
+    (next-logical-line)))
+
+(global-set-key (kbd "C-\\") 'comment-or-uncomment-region-or-line)
 
 (add-hook 'ruby-mode-hook 'iy-tab-noconflict)
 (add-hook 'markdown-mode-hook 'iy-tab-noconflict)
