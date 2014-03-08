@@ -12,6 +12,7 @@
         br = branch
         lg = log --graph --pretty=format:'%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
         amend = commit --amend
+	g = grep --break --heading --line-number
 
 [user]
         name = Andrew Tulloch
@@ -23,7 +24,7 @@
         branch = auto
 
 [log]
-        date = relative
+        # date = relative
 
 [diff]
         algorithm = patience

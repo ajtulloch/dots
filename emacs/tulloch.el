@@ -29,7 +29,8 @@
 
 (defun haskell-config ()
   (setq haskell-stylish-on-save t)
-  (setq haskell-font-lock-symbols t)) 
+  (setq haskell-font-lock-symbols t))
+ 
 
 (defun shortcuts-config ()
   (smex-initialize)
@@ -83,8 +84,6 @@
   (require 'cider)
   (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
-  (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-  (add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
 
   (add-hook 'clojure-mode-hook 'paredit-mode)
   (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
@@ -92,14 +91,7 @@
   (add-hook 'ielm-mode-hook 'paredit-mode)
   (add-hook 'lisp-mode-hook 'paredit-mode)
   (add-hook 'lisp-interaction-mode-hook 'paredit-mode)
-  (add-hook 'scheme-mode-hook 'paredit-mode)
-
-  (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
-  (add-hook 'eval-expression-minibuffer-setup-hook 'rainbow-delimiters-mode)
-  (add-hook 'ielm-mode-hook 'rainbow-delimiters-mode)
-  (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
-  (add-hook 'lisp-interaction-mode-hook 'rainbow-delimiters-mode)
-  (add-hook 'scheme-mode-hook 'rainbow-delimiters-mode))
+  (add-hook 'scheme-mode-hook 'paredit-mode))
 
 (defun c++-config ()
   (require 'google-c-style)
@@ -173,10 +165,14 @@
   (require 'projectile)
   (require 'flx-ido)
   (global-flycheck-mode)
+  (global-rainbow-delimiters-mode)
   (projectile-global-mode)
   (electric-layout-mode)
-  (electric-indent-mode)
+  ;; (electric-indent-mode)
   (electric-pair-mode)
+  (setq yas/triggers-in-field t);
+  (require 'expand-region)
+  (global-set-key (kbd "C-=") 'er/expand-region)
   (ido-mode 1)
   (ido-everywhere 1)
   (flx-ido-mode 1)
@@ -202,6 +198,7 @@
 (defun python-config ()
   (require 'nose)
   (require 'python-mode)
+  (setq py-split-windows-on-execute-p nil)
   (add-hook 'python-mode-hook 'jedi:setup)
   (setq jedi:setup-keys t)
   (setq jedi:complete-on-dot t))
@@ -219,12 +216,12 @@
 ;;     nil))
 ;; (add-hook 'electric-indent-functions 'electric-indent-ignore-python)
 
-(defun electric-indent-ignore-haskell (char)
-  "Ignore electric indentation for haskell-mode"
-  (if (equal major-mode 'python-mode)
-      `no-indent'
-    nil))
-(add-hook 'electric-indent-functions 'electric-indent-ignore-haskell)
+;; (defun electric-indent-ignore-haskell (char)
+;;   "Ignore electric indentation for haskell-mode"
+;;   (if (equal major-mode 'haskell-mode)
+;;       `no-indent'
+;;     nil))
+;; (add-hook 'electric-indent-functions 'electric-indent-ignore-haskell)
 
 ;; ;; Enter key executes newline-and-indent
 ;; (defun set-newline-and-indent ()
@@ -270,9 +267,9 @@
           (lambda () 
             (progn
               (require 'auto-complete-config)
+              (global-config)
               (ac-config-default)
               (scss-config)
-              (global-config)
               (scala-config)
               (golang-config)
               (orgmode-config)
@@ -287,3 +284,44 @@
               (style-config)
               (latex-config))))
 
+(defun toggle-frame-split ()
+    "If the frame is split vertically, split it horizontally or vice versa.
+Assumes that the frame is only split into two."
+    (interactive)
+    (unless (= (length (window-list)) 2) (error "Can only toggle a frame split in two"))
+    (let ((split-vertically-p (window-combined-p)))
+      (delete-window) ; closes current window
+      (if split-vertically-p
+          (split-window-horizontally)
+              (split-window-vertically)) ; gives us a split with the
+                                        ; other window twice
+          (switch-to-buffer nil))) ; restore the original window in
+                                        ; this part of the frame
+
+
+(defun rotate-windows ()
+  "Rotate your windows"
+  (interactive)
+  (cond
+   ((not (> (count-windows) 1))
+    (message "You can't rotate a single window!"))
+   (t
+    (let ((i 0)
+          (num-windows (count-windows)))
+      (while  (< i (- num-windows 1))
+        (let* ((w1 (elt (window-list) i))
+               (w2 (elt (window-list) (% (+ i 1) num-windows)))
+               (b1 (window-buffer w1))
+               (b2 (window-buffer w2))
+               (s1 (window-start w1))
+               (s2 (window-start w2)))
+          (set-window-buffer w1 b2)
+          (set-window-buffer w2 b1)
+          (set-window-start w1 s2)
+          (set-window-start w2 s1)
+          (setq i (1+ i))))))))
+
+;; I don't use the default binding of 'C-x 5', so use
+;; toggle-frame-split instead
+(global-set-key (kbd "C-x 5") 'toggle-frame-split)
+(global-set-key (kbd "C-x 6") 'rotate-windows)

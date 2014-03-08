@@ -60,15 +60,11 @@ _region_.tex
 # Packages
 *.egg
 *.egg-info
-dist
-build
 eggs
 parts
 var
-sdist
 develop-eggs
 .installed.cfg
-lib
 lib64
 __pycache__
 
@@ -86,7 +82,8 @@ __pycache__
 auto-save-list
 tramp
 .\#*
-flycheck-
+flycheck-*
+flycheck_*
 
 # Org-mode
 .org-id-locations
@@ -110,3 +107,11 @@ flycheck-
 .ensime
 .ensime_lucene/
 .ipynb_checkpoints
+
+
+
+######################
+## Personal
+# for iPython notebooks, etc
+tulloch-scratch
+
