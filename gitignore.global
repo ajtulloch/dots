@@ -114,4 +114,4 @@ flycheck_*
 ## Personal
 # for iPython notebooks, etc
 tulloch-scratch
-
+.juliahistory

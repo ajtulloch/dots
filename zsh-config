@@ -34,3 +34,4 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # Racket
 export PATH=$PATH:/Applications/Racket\ v6.0/bin
+

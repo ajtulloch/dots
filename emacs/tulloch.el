@@ -101,6 +101,7 @@
   ;; to the right place, add this to your .emacs right after the
   ;; load-file:
   ;;
+  (add-hook 'c-mode-common-hook 'c-toggle-auto-newline)
   (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 
 
@@ -193,7 +194,10 @@
   (setq auto-save-default nil)
   (setq make-backup-files nil)
 
-  (setq ido-use-faces nil))
+  (setq ido-use-faces nil)
+
+  ;; Open gist page on github
+  (setq gist-view-gist t))
 
 (defun python-config ()
   (require 'nose)
