@@ -1,4 +1,4 @@
-(defun golang-config () 
+(defun golang-config ()
   (add-to-list 'load-path "/usr/local/go/misc/emacs" t)
   (add-to-list 'load-path "~/Code/go/src/github.com/nsf/gocode/emacs" t)
   (require 'go-autocomplete)
@@ -8,6 +8,8 @@
                             (local-set-key (kbd "\C-c\C-r") 'go-remove-unused-imports)))
   (add-hook 'go-mode-hook (lambda ()
                             (local-set-key (kbd "\C-ci") 'go-goto-imports)))
+  (add-hook 'go-mode-hook (lambda ()
+                            (setq tab-width 4)))
   (add-hook 'before-save-hook 'gofmt-before-save))
 
 (defun scss-config ()
@@ -30,20 +32,21 @@
 (defun haskell-config ()
   (setq haskell-stylish-on-save t)
   (setq haskell-font-lock-symbols t))
- 
+
 
 (defun shortcuts-config ()
   (smex-initialize)
   (global-set-key "\C-x\C-m" 'smex)
   (global-set-key "\C-c\C-m" 'smex)
-  
+
   (global-set-key "\C-w" 'backward-kill-word)
   (global-set-key "\C-c\C-g" 'magit-status)
   (global-set-key "\C-x\C-k" 'kill-region)
   (global-set-key "\C-c\C-k" 'kill-region)
   ;; Never use this function (goal-set-column)
   (global-unset-key "\C-x\C-n")
-
+  
+  (column-number-mode t)
 
   (defalias 'qrr 'query-replace-regexp)
   (global-set-key [f5] 'call-last-kbd-macro)
@@ -101,7 +104,6 @@
   ;; to the right place, add this to your .emacs right after the
   ;; load-file:
   ;;
-  (add-hook 'c-mode-common-hook 'c-toggle-auto-newline)
   (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 
 
@@ -150,19 +152,19 @@
                '("exmp" LaTeX-env-label)
                '("defn" LaTeX-env-label)
                '("thm" LaTeX-env-label))))
-  (setq-default TeX-master nil) 
+  (setq-default TeX-master nil)
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   (setq reftex-plug-into-AUCTeX t)
   (setq TeX-view-program-list '(("OS X Preview" "open %o")))
   (setq TeX-view-program-selection '((output-pdf "OS X Preview")))
 
-  
+
 
   (setq TeX-parse-self t)
   (setq TeX-auto-save t)
   (setq LaTeX-command-style '(("" "%(PDF)%(latex) -file-line-error %S%(PDFout)"))))
 
-(defun global-config () 
+(defun global-config ()
   (require 'projectile)
   (require 'flx-ido)
   (global-flycheck-mode)
@@ -189,14 +191,14 @@
                       `(apply ,(lookup-key org-mode-map [tab])))
                 (local-set-key [tab] 'yas/expand)
                 (define-key yas/keymap [tab] 'yas/next-field-or-maybe-expand)))
-  
+
   ;; disable auto-save and auto-backup
   (setq auto-save-default nil)
   (setq make-backup-files nil)
 
   (setq ido-use-faces nil)
 
-  ;; Open gist page on github
+  ;; open gist page on github
   (setq gist-view-gist t))
 
 (defun python-config ()
@@ -262,13 +264,14 @@
     (next-logical-line)))
 
 (global-set-key (kbd "C-\\") 'comment-or-uncomment-region-or-line)
-
+(global-set-key (kbd "C-c w") 'whitespace-cleanup)
+(global-set-key (kbd "C-c s") 'god-mode-all)
 (add-hook 'ruby-mode-hook 'iy-tab-noconflict)
 (add-hook 'markdown-mode-hook 'iy-tab-noconflict)
 (add-hook 'org-mode-hook 'iy-tab-noconflict)
 
-(add-hook 'after-init-hook 
-          (lambda () 
+(add-hook 'after-init-hook
+          (lambda ()
             (progn
               (require 'auto-complete-config)
               (global-config)
