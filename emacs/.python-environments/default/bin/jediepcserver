@@ -1,0 +1,10 @@
+#!/Users/tulloch/.emacs.d/.python-environments/default/bin/python2.7
+# EASY-INSTALL-ENTRY-SCRIPT: 'jediepcserver==0.0.0','console_scripts','jediepcserver'
+__requires__ = 'jediepcserver==0.0.0'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('jediepcserver==0.0.0', 'console_scripts', 'jediepcserver')()
+    )

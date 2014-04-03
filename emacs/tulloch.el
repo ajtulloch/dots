@@ -51,6 +51,7 @@
   (defalias 'qrr 'query-replace-regexp)
   (global-set-key [f5] 'call-last-kbd-macro)
   (global-set-key [f7] 'compile)
+  (add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
   (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode)))
 
 (defun markdown-config ()  (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))

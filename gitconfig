@@ -39,3 +39,6 @@
         path = ~/.gitconfig-private
 [github]
 	user = ajtulloch
+	token = 
+[push]
+	default = simple

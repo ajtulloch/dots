@@ -29,6 +29,7 @@
  '(haskell-mode-hook (quote (turn-on-haskell-indent turn-on-font-lock turn-on-haskell-doc-mode imenu-add-menubar-index)))
  '(linum-format (quote dynamic))
  '(org-agenda-files (quote ("~/Org/partiii.org" "~/Org/tulloch.org")))
+ '(py-mark-decorators t)
  '(reftex-label-alist (quote (("defn" 100 "defn:%F:" "~\\ref{%s}" nil ("defn")) ("thm" 100 "thm:%F:" "~\\ref{%s}" nil ("thm")) ("exmp" 100 "exmp:%F:" "~\\ref{%s}" nil ("exmp")))))
  '(safe-local-variable-values (quote ((outline-minor-mode) (buffer-file-coding-system . utf-8-unix) (whitespace-line-column . 80) (lexical-binding . t))))
  '(vc-annotate-background nil)

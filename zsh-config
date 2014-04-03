@@ -41,3 +41,5 @@ export PATH=$PATH:/Applications/Julia-0.3.0-prerelease-fb184823a3.app/Contents/R
 # https://github.com/JuliaLang/Homebrew.jl/issues/35
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/local/opt/cairo/lib:/usr/local/opt/gettext/lib/
 
+# CUDA
+export PATH=$PATH:/usr/local/cuda/bin/
