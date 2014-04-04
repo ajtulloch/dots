@@ -1,5 +1,4 @@
-export ALTERNATE_EDITOR='env TERM=xterm-256color emacs -nw'
-export EDITOR='env TERM=xterm-256color emacsclient -nw'
+export EDITOR='env TERM=xterm-256color emacs -nw'
 
 # Phabricator
 export PHABRICATORPATH=~/Code/phabricator
@@ -36,7 +35,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 export PATH=$PATH:/Applications/Racket\ v6.0/bin
 
 # Julia
-export PATH=$PATH:/Applications/Julia-0.3.0-prerelease-fb184823a3.app/Contents/Resources/julia/bin
+export PATH=/Applications/Julia-0.3.0-prerelease-ba8b302f8a.app/Contents/Resources/julia/bin:$PATH
 
 # https://github.com/JuliaLang/Homebrew.jl/issues/35
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/local/opt/cairo/lib:/usr/local/opt/gettext/lib/
