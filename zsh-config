@@ -42,3 +42,5 @@ export LD_LIBRARY_PATH=/usr/local/lib:/usr/local/opt/cairo/lib:/usr/local/opt/ge
 
 # CUDA
 export PATH=$PATH:/usr/local/cuda/bin/
+
+export PATH="/Users/tulloch/.cask/bin:$PATH"
