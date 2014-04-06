@@ -1,4 +1,4 @@
-(defun golang-config ()
+;; Golang
   (add-to-list 'load-path "/usr/local/go/misc/emacs" t)
   (add-to-list 'load-path "~/Code/go/src/github.com/nsf/gocode/emacs" t)
   (require 'go-autocomplete)
@@ -10,31 +10,32 @@
                             (local-set-key (kbd "\C-ci") 'go-goto-imports)))
   (add-hook 'go-mode-hook (lambda ()
                             (setq tab-width 4)))
-  (add-hook 'before-save-hook 'gofmt-before-save))
+  (add-hook 'before-save-hook 'gofmt-before-save)
 
-(defun scss-config ()
-  (setq scss-compile-at-save nil))
 
-(defun scala-config ()
+;; scss
+  (setq scss-compile-at-save nil)
+
+;; scala
   (setq scala-indent:use-javadoc-style t)
-  (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
+  (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
-(defun orgmode-config ()
+;; orgmode
   (setq org-default-notes-file "~/notes.org")
   (define-key global-map "\C-cc" 'org-capture)
   (setq org-mobile-directory "~/Dropbox/MobileOrg")
-  (global-set-key "\C-ca" 'org-agenda))
+  (global-set-key "\C-ca" 'org-agenda)
 
-(defun javascript-config ()
+;; JS
   (custom-set-variables '(coffee-tab-width 2))
-  (setq js-indent-level 2))
+  (setq js-indent-level 2)
 
-(defun haskell-config ()
+;; HS
   (setq haskell-stylish-on-save t)
-  (setq haskell-font-lock-symbols t))
+  (setq haskell-font-lock-symbols t)
 
 
-(defun shortcuts-config ()
+;; C++
   (smex-initialize)
   (global-set-key "\C-x\C-m" 'smex)
   (global-set-key "\C-c\C-m" 'smex)
@@ -45,27 +46,22 @@
   (global-set-key "\C-c\C-k" 'kill-region)
   ;; Never use this function (goal-set-column)
   (global-unset-key "\C-x\C-n")
-  
+
   (column-number-mode t)
 
   (defalias 'qrr 'query-replace-regexp)
   (global-set-key [f5] 'call-last-kbd-macro)
   (global-set-key [f7] 'compile)
   (add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode))
-  (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode)))
+  (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
-(defun markdown-config ()  (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+;; Markdown
+  (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-  (add-hook 'markdown-mode 'longlines-mode))
+  (add-hook 'markdown-mode 'longlines-mode)
 
-(defun style-config ()
-  (require 'color-theme)
-  (require 'color-theme-solarized)
-  (color-theme-solarized-dark))
-
-(defun clojure-config ()
-
+;; Clojure
   (eval-after-load "auto-complete"
     '(add-to-list 'ac-modes 'nrepl-mode))
 
@@ -95,9 +91,10 @@
   (add-hook 'ielm-mode-hook 'paredit-mode)
   (add-hook 'lisp-mode-hook 'paredit-mode)
   (add-hook 'lisp-interaction-mode-hook 'paredit-mode)
-  (add-hook 'scheme-mode-hook 'paredit-mode))
+  (add-hook 'scheme-mode-hook 'paredit-mode)
 
-(defun c++-config ()
+
+;; C++
   (require 'google-c-style)
   (add-hook 'c-mode-common-hook 'google-set-c-style)
   ;;
@@ -113,6 +110,7 @@
   (add-to-list 'ac-dictionary-directories (concat "~/.emacs.d/" "AC/ac-dict"))
 
   (require 'auto-complete-clang)
+
 
   (setq ac-auto-start nil)
   (setq ac-quick-help-delay 0.5)
@@ -130,9 +128,9 @@
     (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources)))
   (add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
   ;; ac-source-gtags
-  (my-ac-config))
+  (my-ac-config)
 
-(defun latex-config ()
+;; LATEX
   (add-hook 'LaTeX-mode-hook (lambda ()
                                (TeX-run-style-hooks "amsmath" "amsthm" "latex2e")))
   (add-hook 'LaTeX-mode-hook (lambda ()
@@ -163,9 +161,9 @@
 
   (setq TeX-parse-self t)
   (setq TeX-auto-save t)
-  (setq LaTeX-command-style '(("" "%(PDF)%(latex) -file-line-error %S%(PDFout)"))))
+  (setq LaTeX-command-style '(("" "%(PDF)%(latex) -file-line-error %S%(PDFout)")))
 
-(defun global-config ()
+;; GLOBAL
   (require 'projectile)
   (require 'flx-ido)
   (global-flycheck-mode)
@@ -200,21 +198,22 @@
   (setq ido-use-faces nil)
 
   ;; open gist page on github
-  (setq gist-view-gist t))
+  (setq gist-view-gist t)
 
-(defun python-config ()
+;; PYTHON
   (require 'nose)
   (require 'python-mode)
   (setq py-split-windows-on-execute-p nil)
   (add-hook 'python-mode-hook 'jedi:setup)
   (setq jedi:setup-keys t)
-  (setq jedi:complete-on-dot t))
+  (setq jedi:complete-on-dot t)
 
-(defun r-config ()
+;; R
+
   (setq load-path
         (append '("~/.emacs.d/elpa/polymode"  "~/.emacs.d/elpa/polymode/modes")
                 load-path))
-  (setq ess-nuke-trailing-whitespace-p t))
+  (setq ess-nuke-trailing-whitespace-p t)
 
 ;; (defun electric-indent-ignore-python (char)
 ;;   "Ignore electric indentation for python-mode"
@@ -271,26 +270,6 @@
 (add-hook 'markdown-mode-hook 'iy-tab-noconflict)
 (add-hook 'org-mode-hook 'iy-tab-noconflict)
 
-(add-hook 'after-init-hook
-          (lambda ()
-            (progn
-              (require 'auto-complete-config)
-              (global-config)
-              (ac-config-default)
-              (scss-config)
-              (scala-config)
-              (golang-config)
-              (orgmode-config)
-              (clojure-config)
-              (r-config)
-              (haskell-config)
-              (shortcuts-config)
-              (javascript-config)
-              (markdown-config)
-              (c++-config)
-              (python-config)
-              (style-config)
-              (latex-config))))
 
 (defun toggle-frame-split ()
     "If the frame is split vertically, split it horizontally or vice versa.
