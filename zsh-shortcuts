@@ -20,7 +20,7 @@ alias gl='git lg'
 alias git='noglob git'
 
 # Emacs
-alias emacs='env TERM=xterm-256color emacs -nw'
+alias emacs='env TERM=xterm-16color emacs -nw'
 
 alias gfr='git fetch && git rebase origin/master'
 alias gft='git fetch && git rebase trunk'

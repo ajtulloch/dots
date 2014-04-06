@@ -10,18 +10,18 @@
 (require 'cider)
 (require 'paredit)
 
-(smex-initialize)
+;;; Shortcuts
 (global-set-key "\C-x\C-m" 'smex)
 (global-set-key "\C-c\C-m" 'smex)
-
 (global-set-key "\C-w" 'backward-kill-word)
 (global-set-key "\C-c\C-g" 'magit-status)
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-c\C-k" 'kill-region)
 (global-unset-key "\C-x\C-n")
 
+(load-theme 'solarized-dark t)
+(smex-initialize)
 (column-number-mode t)
-
 (defalias 'qrr 'query-replace-regexp)
 (global-set-key [f5] 'call-last-kbd-macro)
 (global-set-key [f7] 'compile)
@@ -46,12 +46,6 @@
 ;; SCALA
 (setq scala-indent:use-javadoc-style t)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
-
-;; ORG
-(setq org-default-notes-file "~/notes.org")
-(define-key global-map "\C-cc" 'org-capture)
-(setq org-mobile-directory "~/Dropbox/MobileOrg")
-(global-set-key "\C-ca" 'org-agenda)
 
 ;; JS
 (custom-set-variables '(coffee-tab-width 2))
