@@ -1,12 +1,6 @@
-(require 'package)
-
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-
-(package-initialize)
+(require 'cask "/usr/local/Cellar/cask/0.6.0/cask.el")
+(cask-initialize)
+(require 'pallet)
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
       backup-by-copying      t  ; Don't de-link hard links
