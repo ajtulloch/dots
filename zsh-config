@@ -16,8 +16,8 @@ export PATH=~/Code/bin/bin:$PATH
 # Rust, etc.
 
 # Cuda
-# export PATH=/Developer/NVIDIA/CUDA-5.5/bin:$PATH
-# export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-5.5/lib:$DYLD_LIBRARY_PATH
+export PATH=/Developer/NVIDIA/CUDA-5.5/bin:$PATH
+export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-5.5/lib:$DYLD_LIBRARY_PATH
 
 # Haskell
 export PATH=~/.cabal/bin:$PATH
