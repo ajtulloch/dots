@@ -14,6 +14,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ac-auto-start t)
+ '(ac-quick-help-delay 0.5)
+ '(ac-trigger-key "TAB")
  '(auto-save-default nil)
  '(coffee-tab-width 2)
  '(column-number-mode t)
@@ -23,6 +26,7 @@
  '(electric-pair-mode t)
  '(flx-ido-mode t)
  '(flycheck-clang-language-standard "c++11")
+ '(global-auto-complete-mode t)
  '(global-flycheck-mode t nil (flycheck))
  '(global-rainbow-delimiters-mode t)
  '(haskell-font-lock-symbols t)
@@ -38,6 +42,9 @@
  '(make-backup-files nil)
  '(projectile-global-mode t)
  '(py-split-windows-on-execute-p nil)
+ '(scala-indent:add-space-for-scaladoc-asterisk t)
+ '(scala-indent:use-javadoc-style t)
+ '(scalable-fonts-allowed t)
  '(scss-compile-at-save nil)
  '(yas-global-mode t nil (yasnippet))
  '(yas-triggers-in-field t))
