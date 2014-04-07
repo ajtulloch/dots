@@ -1,5 +1,5 @@
-(source melpa)
 (source marmalade)
+(source melpa)
 
 (depends-on "auto-complete")
 (depends-on "better-defaults")
@@ -24,6 +24,7 @@
 (depends-on "ido-ubiquitous")
 (depends-on "ido-vertical-mode")
 (depends-on "idomenu")
+(depends-on "jedi")
 (depends-on "magit")
 (depends-on "nose")
 (depends-on "package-build")
