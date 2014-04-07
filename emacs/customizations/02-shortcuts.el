@@ -5,7 +5,6 @@
   (indent-region (point-min) (point-max) nil)
   (untabify (point-min) (point-max)))
 
-
 (defun iy-tab-noconflict ()
   (let ((command (key-binding [tab]))) ; remember command
     (local-unset-key [tab]) ; unset from (kbd "<tab>")
@@ -60,6 +59,8 @@ Assumes that the frame is only split into two."
           (setq i (1+ i))))))))
 
 
+(defalias 'qrr 'query-replace-regexp)
+
 (global-set-key "\C-x\C-m" 'smex)
 (global-set-key "\C-c\C-m" 'smex)
 (global-set-key "\C-w" 'backward-kill-word)
@@ -67,7 +68,6 @@ Assumes that the frame is only split into two."
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-c\C-k" 'kill-region)
 (global-unset-key "\C-x\C-n")
-(defalias 'qrr 'query-replace-regexp)
 (global-set-key [f5] 'call-last-kbd-macro)
 (global-set-key [f7] 'compile)
 (global-set-key (kbd "C-x 5") 'toggle-frame-split)
