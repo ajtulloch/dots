@@ -1,5 +1,5 @@
-(source marmalade)
 (source melpa)
+(source marmalade)
 
 (depends-on "auto-complete")
 (depends-on "better-defaults")
@@ -19,6 +19,7 @@
 (depends-on "go-autocomplete")
 (depends-on "go-mode")
 (depends-on "google-c-style")
+(depends-on "haskell-mode")
 (depends-on "ido-select-window")
 (depends-on "ido-ubiquitous")
 (depends-on "ido-vertical-mode")
