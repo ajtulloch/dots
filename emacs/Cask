@@ -1,7 +1,6 @@
 (source melpa)
 (source marmalade)
 
-(depends-on "paredit")
 (depends-on "auto-complete")
 (depends-on "better-defaults")
 (depends-on "cask")
@@ -29,6 +28,7 @@
 (depends-on "nose")
 (depends-on "package-build")
 (depends-on "pallet")
+(depends-on "paredit")
 (depends-on "projectile")
 (depends-on "protobuf-mode")
 (depends-on "python-mode")
