@@ -1,11 +1,16 @@
+;;; shortcuts --- Summary
+;;; Commentary:
+;;; Code:
+
 (defun iwb ()
-  "indent whole buffer"
+  "Indent whole buffer."
   (interactive)
   (delete-trailing-whitespace)
   (indent-region (point-min) (point-max) nil)
   (untabify (point-min) (point-max)))
 
 (defun iy-tab-noconflict ()
+  "...?"
   (let ((command (key-binding [tab]))) ; remember command
     (local-unset-key [tab]) ; unset from (kbd "<tab>")
     (local-set-key (kbd "TAB") command))) ; bind to (kbd "TAB")
@@ -37,7 +42,7 @@ Assumes that the frame is only split into two."
 
 
 (defun rotate-windows ()
-  "Rotate your windows"
+  "Rotate your windows."
   (interactive)
   (cond
    ((not (> (count-windows) 1))
@@ -75,3 +80,5 @@ Assumes that the frame is only split into two."
 (global-set-key (kbd "C-\\") 'comment-or-uncomment-region-or-line)
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
 (global-set-key (kbd "C-c s") 'god-mode-all)
+(provide '02-shortcuts)
+;;; 02-shortcuts.el ends here
