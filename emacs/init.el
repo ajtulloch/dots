@@ -5,6 +5,7 @@
 (cask-initialize)
 (require 'pallet)
 
+;; (add-to-list 'load-path "~/.emacs.d/customizations/")
 (mapc 'load (directory-files "~/.emacs.d/customizations" t "^[0-9]+.*\.el$"))
 
 (provide 'init)

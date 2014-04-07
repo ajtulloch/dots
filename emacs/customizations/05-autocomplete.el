@@ -19,5 +19,4 @@
   (add-hook 'auto-complete-mode-hook 'ac-common-setup)
   (global-auto-complete-mode t))
 
-;; ac-source-gtags
 (my-ac-config)
