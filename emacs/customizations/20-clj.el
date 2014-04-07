@@ -1,4 +1,10 @@
+;;; Clojure --- Summary
+;;; Commentary:
+;;; Code:
 (require 'paredit)
+(require 'auto-complete)
+
+;;; Prettify some clojure-specific keywords
 (font-lock-add-keywords
  'clojure-mode
  (mapcar
@@ -13,7 +19,6 @@
     ("\\<partial\\>" ?þ)
     ("\\<complement\\>" ?¬))))
 
-
 (add-to-list 'ac-modes 'nrepl-mode)
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'clojure-mode-hook 'paredit-mode)
@@ -24,3 +29,5 @@
 (add-hook 'lisp-interaction-mode-hook 'paredit-mode)
 (add-hook 'scheme-mode-hook 'paredit-mode)
 
+(provide '20-clj)
+;;; 20-clj.el ends here

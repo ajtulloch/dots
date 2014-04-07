@@ -1,28 +1,19 @@
-(add-hook 'LaTeX-mode-hook (lambda ()
-                             (TeX-run-style-hooks "amsmath" "amsthm" "latex2e")))
-(add-hook 'LaTeX-mode-hook (lambda ()
-                             (TeX-fold-mode 1)))
-(add-hook 'LaTeX-mode-hook
-          '(lambda ()
-             (define-key LaTeX-mode-map (kbd "$") 'self-insert-command)))
-;; (add-hook 'LaTeX-mode-hook 'electric-pair-mode)
-(add-hook 'LaTeX-mode-hook 'rainbow-delimiters-mode)
-(setq TeX-electric-sub-and-superscript t)
-(setq TeX-PDF-mode t)
-(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-(setq TeX-source-correlate-method 'synctex)
-(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
+;;; LaTeX --- Summary
+;;; Commentary:
+;;; Code:
+;; (require 'latex)
 (add-hook 'LaTeX-mode-hook
           (lambda ()
+            (TeX-run-style-hooks "amsmath" "amsthm" "latex2e")
+            (TeX-fold-mode 1)
+            (define-key LaTeX-mode-map (kbd "$") 'self-insert-command)
+            (LaTeX-math-mode)
+            (TeX-source-correlate-mode)
+            (turn-on-reftex)
             (LaTeX-add-environments
              '("exmp" LaTeX-env-label)
              '("defn" LaTeX-env-label)
              '("thm" LaTeX-env-label))))
-(setq-default TeX-master nil)
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-(setq reftex-plug-into-AUCTeX t)
-(setq TeX-view-program-list '(("OS X Preview" "open %o")))
-(setq TeX-view-program-selection '((output-pdf "OS X Preview")))
-(setq TeX-parse-self t)
-(setq TeX-auto-save t)
-(setq LaTeX-command-style '(("" "%(PDF)%(latex) -file-line-error %S%(PDFout)")))
+
+(provide '20-latex)
+;;; 20-latex.el ends here
