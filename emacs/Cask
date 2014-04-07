@@ -1,6 +1,7 @@
 (source melpa)
 (source marmalade)
 
+(depends-on "paredit")
 (depends-on "auto-complete")
 (depends-on "better-defaults")
 (depends-on "cask")

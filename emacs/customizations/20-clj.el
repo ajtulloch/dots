@@ -1,3 +1,4 @@
+(require 'paredit)
 (font-lock-add-keywords
  'clojure-mode
  (mapcar
