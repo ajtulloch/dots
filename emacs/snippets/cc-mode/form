@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: form
+# key: form
+# --
+for (${1:const auto& el} : ${2:elements}) {
+  $0
+}
