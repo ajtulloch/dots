@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: defm
+# key: defm
+# group: object oriented
+# --
+def ${1:method}(self${2:, args}):
+    $0

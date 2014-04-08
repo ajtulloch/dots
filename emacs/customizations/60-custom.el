@@ -1,6 +1,7 @@
 ;;; Custom --- Summary
 ;;; Commentary:
 ;;; Code:
+(setq custom-file "~/.emacs.d/customizations/60-custom.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -57,7 +58,7 @@
  '(scalable-fonts-allowed t)
  '(scss-compile-at-save nil)
  '(yas-global-mode t nil (yasnippet))
- '(yas-triggers-in-field t))
+ '(yas-triggers-in-field nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
