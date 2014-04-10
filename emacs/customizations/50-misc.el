@@ -2,3 +2,5 @@
 (add-hook 'markdown-mode-hook 'iy-tab-noconflict)
 (add-hook 'org-mode-hook 'iy-tab-noconflict)
 (add-hook 'org-mode-hook 'iy-tab-noconflict)
+(add-hook 'text-mode-hook (lambda () (flyspell-mode 1)))
+(add-hook 'LaTeX-mode-hook (lambda () (flyspell-mode 1)))

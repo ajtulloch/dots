@@ -10,6 +10,7 @@
             (LaTeX-math-mode)
             (TeX-source-correlate-mode)
             (turn-on-reftex)
+            (auctex-latexmk-setup)
             (LaTeX-add-environments
              '("exmp" LaTeX-env-label)
              '("defn" LaTeX-env-label)

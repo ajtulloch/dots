@@ -2,12 +2,22 @@
 ;;; Commentary:
 ;;; Code:
 
-(defun iwb ()
-  "Indent whole buffer."
+(defun rename-current-buffer-file ()
+  "Renames current buffer and file it is visiting."
   (interactive)
-  (delete-trailing-whitespace)
-  (indent-region (point-min) (point-max) nil)
-  (untabify (point-min) (point-max)))
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (error "Buffer '%s' is not visiting a file!" name)
+      (let ((new-name (read-file-name "New name: " filename)))
+        (if (get-buffer new-name)
+            (error "A buffer named '%s' already exists!" new-name)
+          (rename-file filename new-name 1)
+          (rename-buffer new-name)
+          (set-visited-file-name new-name)
+          (set-buffer-modified-p nil)
+          (message "File '%s' successfully renamed to '%s'"
+                   name (file-name-nondirectory new-name)))))))
 
 (defun iy-tab-noconflict ()
   "...?"
@@ -30,7 +40,8 @@
     "If the frame is split vertically, split it horizontally or vice versa.
 Assumes that the frame is only split into two."
     (interactive)
-    (unless (= (length (window-list)) 2) (error "Can only toggle a frame split in two"))
+    (unless (= (length (window-list)) 2)
+      (error "Can only toggle a frame split in two"))
     (let ((split-vertically-p (window-combined-p)))
       (delete-window) ; closes current window
       (if split-vertically-p
@@ -39,7 +50,6 @@ Assumes that the frame is only split into two."
                                         ; other window twice
           (switch-to-buffer nil))) ; restore the original window in
                                         ; this part of the frame
-
 
 (defun rotate-windows ()
   "Rotate your windows."
@@ -66,6 +76,32 @@ Assumes that the frame is only split into two."
 
 (defalias 'qrr 'query-replace-regexp)
 
+(defun goto-line-with-feedback ()
+  "Show line numbers temporarily, while prompting for the line number input."
+  (interactive)
+  (unwind-protect
+      (progn
+        (linum-mode 1)
+        (goto-line (read-number "Goto line: ")))
+    (linum-mode -1)))
+
+(add-hook 'ido-setup-hook
+          (lambda ()
+            ;; Go straight home
+            (define-key ido-file-completion-map
+              (kbd "~")
+              (lambda ()
+                (interactive)
+                (if (looking-back "/")
+                    (insert "~/")
+                  (call-interactively 'self-insert-command))))))
+
+(global-set-key (kbd "M-j")
+                (lambda ()
+                  (interactive)
+                  (join-line -1)))
+
+(global-set-key [remap goto-line] 'goto-line-with-feedback)
 (global-set-key "\C-x\C-m" 'smex)
 (global-set-key "\C-c\C-m" 'smex)
 (global-set-key "\C-w" 'backward-kill-word)
@@ -80,5 +116,7 @@ Assumes that the frame is only split into two."
 (global-set-key (kbd "C-\\") 'comment-or-uncomment-region-or-line)
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
 (global-set-key (kbd "C-c s") 'god-mode-all)
+(global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
+
 (provide '02-shortcuts)
 ;;; 02-shortcuts.el ends here

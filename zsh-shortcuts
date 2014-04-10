@@ -30,3 +30,6 @@ export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL" 
 
 alias xelatexmk='latexmk -pvc -pdf -xelatex'
+
+# Colourised cat
+alias ccat='pygmentize -g'
