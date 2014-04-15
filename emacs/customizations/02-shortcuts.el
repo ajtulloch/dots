@@ -99,16 +99,16 @@ Assumes that the frame is only split into two."
 (global-set-key (kbd "M-j")
                 (lambda ()
                   (interactive)
+                  (forward-line -1)
                   (join-line -1)))
 
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
-(global-set-key "\C-x\C-m" 'smex)
-(global-set-key "\C-c\C-m" 'smex)
-(global-set-key "\C-w" 'backward-kill-word)
-(global-set-key "\C-c\C-g" 'magit-status)
-(global-set-key "\C-x\C-k" 'kill-region)
-(global-set-key "\C-c\C-k" 'kill-region)
-(global-unset-key "\C-x\C-n")
+(global-set-key (kbd "C-x C-m") 'smex)
+(global-set-key (kbd "C-c C-m") 'smex)
+(global-set-key (kbd "C-w") 'backward-kill-word)
+(global-set-key (kbd "C-c C-g") 'magit-status)
+(global-set-key (kbd "C-x C-k") 'kill-region)
+(global-set-key (kbd "C-c C-k") 'kill-region)
 (global-set-key [f5] 'call-last-kbd-macro)
 (global-set-key [f7] 'compile)
 (global-set-key (kbd "C-x 5") 'toggle-frame-split)
@@ -117,6 +117,9 @@ Assumes that the frame is only split into two."
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
 (global-set-key (kbd "C-c s") 'god-mode-all)
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
+
+(global-unset-key (kbd "\C-x\C-n"))
+(global-unset-key (kbd "C-x m"))
 
 (provide '02-shortcuts)
 ;;; 02-shortcuts.el ends here
