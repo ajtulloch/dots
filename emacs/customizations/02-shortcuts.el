@@ -117,6 +117,7 @@ Assumes that the frame is only split into two."
 (global-set-key (kbd "C-c w") 'whitespace-cleanup)
 (global-set-key (kbd "C-c s") 'god-mode-all)
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
+(global-set-key (kbd "C-x p") 'switch-to-buffer-other-window)
 
 (global-unset-key (kbd "\C-x\C-n"))
 (global-unset-key (kbd "C-x m"))
