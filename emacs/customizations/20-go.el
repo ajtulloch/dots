@@ -9,6 +9,8 @@
 (add-hook 'go-mode-hook
           (lambda ()
             (set-variable tab-width 4)
+            ;; Turn off highlighting for tabs.
+            (whitespace-toggle-options 'face)
             (local-set-key (kbd "C-c i") 'go-goto-imports)
             (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
 
