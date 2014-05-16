@@ -57,6 +57,7 @@
  '(keyfreq-mode t)
  '(magit-set-upstream-on-push (quote askifnotset))
  '(make-backup-files nil)
+ '(markdown-reference-location (quote end))
  '(preview-TeX-style-dir "/Users/tulloch/Code/dots/emacs/.cask/24.3.1/elpa/auctex-11.87.4/latex" t)
  '(projectile-global-mode t)
  '(py-split-windows-on-execute-p nil)

@@ -119,8 +119,6 @@ Assumes that the frame is only split into two."
 (global-set-key (kbd "C-c s") 'god-mode-all)
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 (global-set-key (kbd "C-x p") 'switch-to-buffer-other-window)
-(global-set-key (kbd "C-x p") 'switch-to-buffer-other-window)
-(global-set-key (kbd "C-x p") 'switch-to-buffer-other-window)
 (global-set-key (kbd "C-c C-j") 'next-error)
 (global-set-key (kbd "C-C C-k") 'previous-error)
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
