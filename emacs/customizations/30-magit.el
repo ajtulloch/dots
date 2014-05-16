@@ -3,6 +3,7 @@
 ;;; Code:
 
 (require 'magit)
+
 (defadvice magit-status (around magit-fullscreen activate)
   "Make magit-status run alone in a frame."
   (window-configuration-to-register :magit-fullscreen)

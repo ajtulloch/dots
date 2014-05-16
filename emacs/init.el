@@ -1,6 +1,7 @@
 ;;; Init --- Summary
 ;;; Commentary:
 ;;; Code:
+
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 (require 'pallet)

@@ -2,36 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'url)
-
-(defun beautify-json ()
-  "Formats JSON at point."
-  (interactive)
-  (let ((b (if mark-active (min (point) (mark)) (point-min)))
-        (e (if mark-active (max (point) (mark)) (point-max))))
-    (shell-command-on-region b e
-                             "python -mjson.tool" (current-buffer) t)))
-
-(defun browse-gist-id (format-string)
-  "Sends the current buffer to GitHub.
-Use FORMAT-STRING to open
-a formatted url that is passed the gist's id."
-  (gist-buffer-private)
-  (let* ((parsed (url-generic-parse-url (current-kill 0)))
-         (gist-id (substring (url-filename parsed) 1))  ;  "/asdf" -> "asdf
-         (format-url (format format-string gist-id)))
-    (message format-url)
-    (browse-url format-url)))
-
-(defun gistio-buffer ()
-  "Sends Markdown gist to gist.io for nicer visualization."
-  (interactive)
-  (browse-gist-id "http://www.mkdown.com/%s"))
-
-(defun ipython-nbview-buffer ()
-  "Sends ipython .ipynb to github and opens in nbviewer."
-  (interactive)
-  (browse-gist-id "http://nbviewer.ipython.org/gist/%s"))
 
 (defun rename-current-buffer-file ()
   "Renames current buffer and file it is visiting."
