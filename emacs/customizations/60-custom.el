@@ -61,8 +61,9 @@
  '(projectile-global-mode t)
  '(py-split-windows-on-execute-p nil)
  '(reftex-plug-into-AUCTeX t)
- '(safe-local-variable-values (quote ((TeX-master . "master") (TeX-master . t) (whitespace-line-column . 80) (lexical-binding . t))))
+ '(rng-nxml-auto-validate-flag nil)
  '(scala-indent:add-space-for-scaladoc-asterisk t)
+ '(safe-local-variable-values (quote ((TeX-master . "master") (TeX-master . t) (whitespace-line-column . 80) (lexical-binding . t))))
  '(scala-indent:use-javadoc-style t)
  '(scalable-fonts-allowed t)
  '(scss-compile-at-save nil)
@@ -77,7 +78,7 @@
 
 (set-face-attribute 'default nil
                     :family "Source Code Pro"
-                    :height 120
+                    :height 100
                     :weight 'light)
 
 (provide '60-custom)

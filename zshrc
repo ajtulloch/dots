@@ -43,7 +43,10 @@ alias zshconfig="vim ~/.zshrc"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git battery autojump)
+plugins=(git battery z)
+
+# Muscle memory
+alias j='z'
 
 source $ZSH/oh-my-zsh.sh
 function git_prompt_info() {

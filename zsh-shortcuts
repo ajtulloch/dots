@@ -13,7 +13,7 @@ alias gdn='git diff HEAD~ --name-only'
 alias gdn='git diff HEAD~ --name-only'
 alias gaa='git add . && git commit --amend -C HEAD'
 
-alias vgdn='vim -O `gdn | grep -v __init__`'
+alias egdn='emacs `gdn | grep -v __init__`'
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
 alias gl='git lg'
@@ -26,8 +26,8 @@ alias gfr='git fetch && git rebase origin/master'
 alias gft='git fetch && git rebase trunk'
 alias tma='tmux attach -d -t'
 
-export LC_ALL=en_US.utf-8 
-export LANG="$LC_ALL" 
+export LC_ALL=en_US.utf-8
+export LANG="$LC_ALL"
 
 alias xelatexmk='latexmk -pvc -pdf -xelatex'
 
