@@ -10,11 +10,6 @@
 (defvar gist-js-format-string
   "<script src=\"https://gist.github.com/%s.js\"></script>")
 
-(defun beautify-json (start end)
-  "Formats JSON at point."
-  (interactive "r")
-  (shell-command-on-region start end "python -mjson.tool" nil t))
-
 (defun gist-with (callback)
   (if (region-active-p)
       (gist-region-private (region-beginning) (region-end))

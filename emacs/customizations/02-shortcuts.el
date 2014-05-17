@@ -2,6 +2,20 @@
 ;;; Commentary:
 ;;; Code:
 
+(defun uniq-lines (start end)
+  "Removes duplicate lines from the selected region."
+  (interactive "*r")
+  (goto-char start)
+  (beginning-of-line)
+  (let ((last ""))
+    (while (< (point) end)
+      (let* ((bol (point))
+             (eol (progn (end-of-line) (point)))
+             (text (buffer-substring bol eol)))
+        (forward-char)
+        (if (string= last text)
+            (delete-region bol (point))
+          (setq last text))))))
 
 (defun rename-current-buffer-file ()
   "Renames current buffer and file it is visiting."
