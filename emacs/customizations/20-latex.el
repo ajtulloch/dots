@@ -3,10 +3,9 @@
 ;;; Code:
 ;; (require 'latex)
 
-(require 'auto-complete-auctex)
-
 (add-hook 'LaTeX-mode-hook
           (lambda ()
+            (require 'auto-complete-auctex)
             (TeX-run-style-hooks "amsmath" "amsthm" "latex2e")
             (TeX-fold-mode 1)
             (define-key LaTeX-mode-map (kbd "$") 'self-insert-command)
@@ -14,6 +13,7 @@
             (TeX-source-correlate-mode)
             (turn-on-reftex)
             (auctex-latexmk-setup)
+            (diminish 'reftex-mode)
             (LaTeX-add-environments
              '("exmp" LaTeX-env-label)
              '("defn" LaTeX-env-label)
