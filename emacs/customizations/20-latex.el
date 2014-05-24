@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 ;; (require 'latex)
+
+(require 'auto-complete-auctex)
+
 (add-hook 'LaTeX-mode-hook
           (lambda ()
             (TeX-run-style-hooks "amsmath" "amsthm" "latex2e")

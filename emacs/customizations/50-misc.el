@@ -3,7 +3,7 @@
 ;;; Code:
 
 
-(add-hook 'ruby-mode-hook 'iy-tab-noconflict)
+;; (add-hook 'ruby-mode-hook 'iy-tab-noconflict)
 ;; (add-hook 'markdown-mode-hook 'iy-tab-noconflict)
 
 ;; (defun markdown-unset-tab ()
@@ -20,7 +20,7 @@
 ;;                                  (local-set-key [tab] 'yas/expand)))
 
 (add-hook 'org-mode-hook 'iy-tab-noconflict)
-(add-hook 'haskell-mode-hook 'iy-tab-noconflict)
+;; (add-hook 'haskell-mode-hook 'iy-tab-noconflict)
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
