@@ -6,9 +6,8 @@
           (lambda ()
             (electric-layout-mode -1)
             (electric-indent-mode -1)
-            (turn-on-haskell-indent)))
-;; (set-face-background 'shm-current-face "ac-selection-face")
-;; (set-face-background 'shm-quarantine-face "lemonchiffon")
+            (turn-on-haskell-indent)
+            (diminish 'haskell-indent-mode)))
 
 (provide '20-hs)
 ;;; 20-hs.el ends here

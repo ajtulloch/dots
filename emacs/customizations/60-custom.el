@@ -34,7 +34,6 @@
  '(dired-use-ls-dired nil)
  '(electric-indent-mode t)
  '(electric-layout-mode t)
- '(electric-pair-mode t)
  '(flx-ido-mode t)
  '(flycheck-c/c++-googlelint-executable "/usr/local/bin/cpplint")
  '(flycheck-clang-language-standard "c++11")
@@ -73,6 +72,7 @@
  '(scala-indent:use-javadoc-style t)
  '(scalable-fonts-allowed t)
  '(scss-compile-at-save nil)
+ '(smartparens-global-strict-mode t)
  '(yas-global-mode t nil (yasnippet))
  '(yas-triggers-in-field t))
 (custom-set-faces
