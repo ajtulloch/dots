@@ -61,7 +61,7 @@
  '(markdown-reference-location (quote end))
  '(preview-TeX-style-dir "/Users/tulloch/Code/dots/emacs/.cask/24.3.1/elpa/auctex-11.87.4/latex")
  '(projectile-global-mode t)
- '(projectile-mode-line-lighter " ∫")
+ '(projectile-mode-line-lighter "")
  '(projectile-use-git-grep t)
  '(py-split-windows-on-execute-p nil)
  '(reftex-label-alist (quote (("thm" nil nil nil nil nil -3))))
@@ -72,15 +72,15 @@
  '(scala-indent:use-javadoc-style t)
  '(scalable-fonts-allowed t)
  '(scss-compile-at-save nil)
- '(smartparens-global-strict-mode t)
  '(yas-global-mode t nil (yasnippet))
  '(yas-triggers-in-field t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+ '(mode-line ((t (:foreground "#0000ee" :background "#ffffff" :box nil))))
+ '(mode-line-inactive ((t (:foreground "#00ffff" :background "#000000" :box nil)))))
+
 
 (set-face-attribute 'default nil
                     :family "Source Code Pro"
