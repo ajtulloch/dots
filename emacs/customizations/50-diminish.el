@@ -24,4 +24,8 @@
 (diminish 'auto-fill-function)
 (diminish 'isearch-mode)
 
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (setq mode-name "el")))
+
 ;;; 50-diminish ends here

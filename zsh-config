@@ -1,3 +1,4 @@
+# -*- mode: sh; -*-
 export EDITOR='env TERM=xterm-16color emacs -nw'
 
 # Phabricator
