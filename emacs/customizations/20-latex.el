@@ -5,7 +5,6 @@
 
 (add-hook 'LaTeX-mode-hook
           (lambda ()
-            (require 'auto-complete-auctex)
             (require 'smartparens-latex)
             (TeX-run-style-hooks "amsmath" "amsthm" "latex2e")
             (TeX-fold-mode 1)

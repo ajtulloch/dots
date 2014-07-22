@@ -33,3 +33,6 @@ alias xelatexmk='latexmk -pvc -pdf -xelatex'
 
 # Colourised cat
 alias ccat='pygmentize -g'
+
+# Lua
+alias luarep='rlwrap th'

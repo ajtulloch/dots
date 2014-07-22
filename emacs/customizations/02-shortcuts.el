@@ -118,6 +118,8 @@ Assumes that the frame is only split into two."
                   (join-line -1)))
 
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
+(global-unset-key (kbd "C-x C-d"))
+(global-set-key (kbd "C-x C-d") 'ido-dired)
 (global-set-key (kbd "C-x C-m") 'smex)
 (global-set-key (kbd "C-c C-m") 'smex)
 (global-set-key (kbd "C-w") 'backward-kill-word)

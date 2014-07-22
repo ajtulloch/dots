@@ -3,7 +3,7 @@
 ;;; Code:
 (require 'auto-complete)
 (require 'auto-complete-config)
-(require 'go-mode-load)
+(require 'go-mode)
 (require 'go-autocomplete)
 
 (add-hook 'go-mode-hook
