@@ -138,6 +138,7 @@ Assumes that the frame is only split into two."
 (global-set-key (kbd "C-c C-j") 'next-error)
 (global-set-key (kbd "C-C C-k") 'previous-error)
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+(global-set-key (kbd "C-c p g") 'projectile-grep)
 
 (global-unset-key (kbd "\C-x\C-n"))
 (global-unset-key (kbd "C-x m"))
