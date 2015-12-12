@@ -20,7 +20,7 @@ alias git='noglob git'
 
 # Emacs
 alias emacs='env TERM=xterm-16color emacs -nw'
-
+alias e='emacsclient'
 alias gfr='git fetch && git rebase origin/master'
 alias gft='git fetch && git rebase trunk'
 alias tma='tmux attach -d -t'
