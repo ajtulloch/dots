@@ -27,9 +27,12 @@ values."
      better-defaults
      osx
      emacs-lisp
+     ;; clojurescript
+     clojure
      ipython-notebook
      git
      markdown
+     ;; racket
      (haskell :variables
               haskell-process-type 'stack-ghci
               haskell-enable-ghc-mod-support nil)
@@ -39,6 +42,7 @@ values."
      rust
      yaml
      org
+     racket
      (lua :variables lua-indent-level 4)
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -257,7 +261,8 @@ layers configuration. You are free to put any user code."
              "utils")
             :append)
            (require
-            (quote swift-project-settings)))))))
+            (quote swift-project-settings))))))
+ '(vc-follow-symlinks t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
