@@ -45,7 +45,7 @@
 [EXTRA]
 \\setsansfont[Mapping=tex-text]{Helvetica Neue}
 \\setmonofont[Mapping=tex-text,Scale=0.85]{Source Code Pro Light}
-\\setromanfont[Mapping=tex-text,Numbers=OldStyle]{Minion Pro}
+\\setromanfont[Mapping=tex-text,Numbers=OldStyle]{Helvetica Neue}
 \\lstset{basicstyle=\\footnotesize\\ttfamily,breaklines=true}
 \\onehalfspacing
 \\hypersetup{colorlinks=true}"
@@ -63,7 +63,7 @@
 [EXTRA]
 \\setsansfont[Mapping=tex-text]{Helvetica Neue}
 \\setmonofont[Mapping=tex-text,Scale=0.85]{Source Code Pro Light}
-\\setromanfont[Mapping=tex-text,Numbers=OldStyle]{Minion Pro}
+\\setromanfont[Mapping=tex-text,Numbers=OldStyle]{Helvetica Neue}
 \\lstset{basicstyle=\\footnotesize\\ttfamily,breaklines=true}
 \\DoubleSpacing
 \\hypersetup{colorlinks=true}"

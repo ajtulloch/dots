@@ -40,3 +40,6 @@
 [submodule "vim/bundle/vim-latex"]
 	path = vim/bundle/vim-latex
 	url = git://git.code.sf.net/p/vim-latex/vim-latex
+[submodule "spacemacs/.emacs.d/private/intero"]
+	path = spacemacs/.emacs.d/private/intero
+	url = https://github.com/cydparser/spacemacs-intero

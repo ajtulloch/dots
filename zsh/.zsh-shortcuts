@@ -1,7 +1,7 @@
 # -*- mode: sh; -*-
 # Source global definitions
 if [ -f /etc/zshrc ]; then
-	. /etc/zshrc
+  . /etc/zshrc
 fi
 
 # Personal
@@ -11,6 +11,7 @@ alias br='git branch'
 alias gri='git rebase -i'
 alias gdn='git diff HEAD~ --name-only'
 alias gaa='git add . && git commit --amend -C HEAD'
+alias hgaa='HGEDITOR=/usr/bin/true hg commit --amend'
 
 alias egdn='emacs `gdn | grep -v __init__`'
 alias ls='ls --color=auto'
@@ -35,3 +36,7 @@ alias ccat='pygmentize -g'
 
 # Lua
 alias luarep='rlwrap th'
+
+function keynote-colors () {
+    pygmentize -f rtf -O 'fontface=Monaco,style=tango' $1 | sed 's;\\f0;\\f0\\fs60;g' | tr -d '\n' | sed 's;\\par}$;};' | pbcopy
+}

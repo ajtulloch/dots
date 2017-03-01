@@ -16,8 +16,8 @@
 	g = grep --break --heading --line-number
 
 [user]
-        name = Andrew Tulloch
-        email = andrew@tullo.ch
+	name = Andrew Tulloch
+	email = andrew@tullo.ch
 
 [color]
         diff = auto

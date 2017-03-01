@@ -3,12 +3,16 @@
 (global-set-key (kbd "C-c C-m") 'helm-M-x)
 (global-set-key (kbd "C-w") 'backward-kill-word)
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
-(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 (global-set-key (kbd "C-x C-k") 'kill-region)
 (global-set-key (kbd "C-c C-k") 'kill-region)
 (global-set-key (kbd "C-c C-g") 'magit-status)
 (global-set-key (kbd "C-x 5") 'toggle-frame-split)
 (global-set-key (kbd "C-c C-f") 'clang-format)
+
+(global-set-key (kbd "C-c SPC") 'avy-goto-word-or-subword-1)
+(global-set-key (kbd "C-'") 'avy-goto-word-or-subword-1)
+(global-set-key (kbd "C-c j") 'avy-goto-word-or-subword-1)
+;; (global-set-key (kbd "C-s") 'swiper)
 
 (add-hook 'ido-setup-hook
           (lambda ()

@@ -62,7 +62,7 @@ Assumes that the frame is only split into two."
           (setq i (1+ i))))))))
 
 
-(defalias 'qrr 'query-replace-regexp)
+(defalias 'qrr 'vr/query-replace)
 
 (defun goto-line-with-feedback ()
   "Show line numbers temporarily, while prompting for the line number input."

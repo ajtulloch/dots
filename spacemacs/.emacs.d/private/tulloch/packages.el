@@ -15,6 +15,10 @@
 (setq tulloch-packages
     '(
       dired-details+
+      avy
+      ivy
+      swiper
+      annoying-arrows-mode
       ))
 
 ;; List of packages to exclude.
@@ -36,3 +40,18 @@
     :init
     (setq dired-details-hidden-string "")
     (setq dired-use-ls-dired nil)))
+
+;; https://github.com/jwiegley/use-package
+
+(defun tulloch/init-annoying-arrows-mode ()
+  ""
+  (use-package annoying-arrows-mode
+    :init
+    (global-annoying-arrows-mode)))
+
+(defun tulloch/init-swiper ()
+  ""
+  (use-package swiper
+    :init
+    (ivy-mode 1)
+    (setq ivy-use-virtual-buffers t)))

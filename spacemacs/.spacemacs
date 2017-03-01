@@ -23,6 +23,7 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     haskell
      auto-completion
      better-defaults
      osx
@@ -31,15 +32,12 @@ values."
      clojure
      ipython-notebook
      git
+     go
      markdown
      ;; racket
-     (haskell :variables
-              haskell-process-type 'stack-ghci
-              haskell-enable-ghc-mod-support nil)
      python
      c-c++
      latex
-     rust
      yaml
      org
      racket
@@ -51,6 +49,8 @@ values."
      syntax-checking
      version-control
      tulloch
+     intero
+     rust
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -62,7 +62,9 @@ values."
      clang-format
      protobuf-mode
      dockerfile-mode
-;;     swift-mode
+     draft-mode
+     visual-regexp-steroids
+     ack
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -113,7 +115,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :sizen 9
                                :weight light
                                :width normal
                                :powerline-scale 1.1)
@@ -215,17 +217,16 @@ values."
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
-  (add-to-list 'exec-path "~/.local/bin/"))
+  (setq projectile-enable-caching nil)
+  (setq server-socket-dir "~/.local/emacs-server")
+)
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
-  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-  (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
-  (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-  (add-to-list 'exec-path "~/.local/bin")
-  (add-to-list 'exec-path "~/.stack/programs/x86_64-osx/ghc-7.10.2/bin"))
+  (setq projectile-enable-caching nil)
+  (add-to-list 'auto-mode-alist '("BUCK" . python-mode)))
 
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -235,11 +236,14 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ack-command "/usr/local/bin/ack ")
  '(clang-format-executable "/usr/local/bin/clang-format")
  '(clang-format-style "file")
+ '(compilation-scroll-output t)
  '(global-company-mode t)
- '(global-flycheck-mode t)
- '(haskell-process-type (quote stack-ghci))
+ '(global-diff-hl-mode nil)
+ '(global-flycheck-mode nil)
+ '(projectile-enable-caching nil)
  '(projectile-use-git-grep t)
  '(safe-local-variable-values
    (quote
@@ -262,7 +266,8 @@ layers configuration. You are free to put any user code."
             :append)
            (require
             (quote swift-project-settings))))))
- '(vc-follow-symlinks t))
+ '(vc-follow-symlinks t)
+ '(vc-handled-backends nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
