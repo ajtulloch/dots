@@ -117,3 +117,9 @@ export ANDROID_SDK=/opt/android_sdk
 export ANDROID_NDK_REPOSITORY=/opt/android_ndk
 export ANDROID_HOME=${ANDROID_SDK}
 export PATH=${PATH}:${ANDROID_SDK}/tools:${ANDROID_SDK}/platform-tools
+
+# Fix HG pager
+export LESS='FSRX'
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+# export PATH="~/anaconda3/bin:$PATH"
+export PATH=/Users/tulloch/miniconda2/bin:$PATH

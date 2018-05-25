@@ -37,7 +37,7 @@ values."
      ;; racket
      python
      c-c++
-     latex
+     (latex :variables latex-build-command "LatexMk")
      yaml
      org
      racket
@@ -240,11 +240,13 @@ layers configuration. You are free to put any user code."
  '(clang-format-executable "/usr/local/bin/clang-format")
  '(clang-format-style "file")
  '(compilation-scroll-output t)
+ '(flycheck-clang-args (quote ("-std=c++11")))
  '(global-company-mode t)
  '(global-diff-hl-mode nil)
  '(global-flycheck-mode nil)
  '(projectile-enable-caching nil)
  '(projectile-use-git-grep t)
+ '(python-fill-docstring-style (quote django))
  '(safe-local-variable-values
    (quote
     ((tab-always-indent . t)

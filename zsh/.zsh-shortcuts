@@ -37,6 +37,20 @@ alias ccat='pygmentize -g'
 # Lua
 alias luarep='rlwrap th'
 
+function geometric-mean {
+    awk '{b  = $NF; C += log(b); D++; } END { if (D > 0) print exp(C/D); }'
+}
+
+function arithmetic-mean {
+    awk '{ sum += $NF; n++ } END { if (n > 0) print sum / n; }'
+}
+
+
 function keynote-colors () {
     pygmentize -f rtf -O 'fontface=Monaco,style=tango' $1 | sed 's;\\f0;\\f0\\fs60;g' | tr -d '\n' | sed 's;\\par}$;};' | pbcopy
 }
+
+# Set tmux pwd
+if [ -n "$TMUX" ]; then
+    tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD"
+fi
