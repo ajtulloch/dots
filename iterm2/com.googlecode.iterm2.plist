@@ -1075,10 +1075,12 @@
 	</dict>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>269 177 796 473 0 0 1440 877 </string>
+	<key>NSWindow Frame UKCrashReporter</key>
+	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>720 0 718 877 0 0 1440 877 </string>
+	<string>0 0 720 877 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 5 1438 872 0 0 1440 877 </string>
+	<string>0 5 718 872 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 10</key>
 	<string>533 78 490 352 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 11</key>
@@ -1086,19 +1088,19 @@
 	<key>NSWindow Frame iTerm Window 12</key>
 	<string>575 32 490 352 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>0 5 1438 872 0 0 1440 877 </string>
-	<key>NSWindow Frame iTerm Window 3</key>
 	<string>720 5 718 872 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>0 525 490 352 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
-	<string>0 10 1440 867 0 0 1440 877 </string>
+	<string>720 0 718 877 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
-	<string>0 4 2560 872 0 0 1440 877 </string>
+	<string>0 5 718 872 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
-	<string>719 525 490 352 0 0 1440 877 </string>
+	<string>720 525 490 352 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 7</key>
 	<string>470 147 490 352 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 8</key>
-	<string>491 124 490 352 0 0 1440 877 </string>
+	<string>0 5 1438 872 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 9</key>
 	<string>512 101 490 352 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
@@ -1917,7 +1919,7 @@
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>ShowPaneTitles</key>
 	<true/>
 	<key>SmartPlacement</key>
@@ -1944,6 +1946,8 @@
 	</array>
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
+	<key>UKCrashReporterLastCrashReportDate</key>
+	<real>1543346176</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>

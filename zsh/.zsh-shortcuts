@@ -14,14 +14,13 @@ alias gaa='git add . && git commit --amend -C HEAD'
 alias hgaa='HGEDITOR=/usr/bin/true hg commit --amend'
 
 alias egdn='emacs `gdn | grep -v __init__`'
-alias ls='ls --color=auto'
+alias ls='gls --color=auto'
 alias grep='grep --colour=auto'
 alias gl='git lg'
 alias git='noglob git'
 
 # Emacs
 alias emacs='env TERM=xterm-16color emacs -nw'
-alias e='emacsclient'
 alias gfr='git fetch && git rebase origin/master'
 alias gft='git fetch && git rebase trunk'
 alias tma='tmux attach -d -t'
@@ -48,6 +47,10 @@ function arithmetic-mean {
 
 function keynote-colors () {
     pygmentize -f rtf -O 'fontface=Monaco,style=tango' $1 | sed 's;\\f0;\\f0\\fs60;g' | tr -d '\n' | sed 's;\\par}$;};' | pbcopy
+}
+
+function tvm-best () {
+    python -m tvm.exec.autotvm_log_editor --act pick-best --i $1 --o /dev/stdout
 }
 
 # Set tmux pwd

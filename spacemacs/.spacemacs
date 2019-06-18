@@ -226,6 +226,8 @@ user code."
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
   (setq projectile-enable-caching nil)
+  (if (file-exists-p "~/src/llvm/utils/emacs/llvm-mode.el")
+      (load-file "~/src/llvm/utils/emacs/llvm-mode.el"))
   (add-to-list 'auto-mode-alist '("BUCK" . python-mode)))
 
 

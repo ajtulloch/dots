@@ -3,15 +3,14 @@ if [ -z "$PS1" ]; then
     return
 fi
 
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+
 
 unsetopt hashcmds hashdirs
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-if [ -f ~/.zsh-shortcuts ]; then
-  source ~/.zsh-shortcuts
-fi
 
 if [ -f ~/.zsh-config ]; then
   source ~/.zsh-config
@@ -123,3 +122,31 @@ export LESS='FSRX'
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 # export PATH="~/anaconda3/bin:$PATH"
 export PATH=/Users/tulloch/miniconda2/bin:$PATH
+
+# TVM
+export PYTHONPATH=~/src/tvm/vta/python:~/src/tvm/python:~/src/tvm/topi/python:~/src/tvm/nnvm/python:${PYTHONPATH}
+
+if [ -f ~/.zsh-shortcuts ]; then
+    source ~/.zsh-shortcuts
+fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/tulloch/miniconda2/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/tulloch/miniconda2/etc/profile.d/conda.sh" ]; then
+        . "/Users/tulloch/miniconda2/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/tulloch/miniconda2/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+source virtualenvwrapper.sh
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
