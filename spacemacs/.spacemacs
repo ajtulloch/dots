@@ -47,7 +47,8 @@ values."
      ;;        shell-default-position 'bottom)
      spell-checking
      syntax-checking
-     version-control
+     (version-control :variables
+                       version-control-diff-tool 'diff-hl)
      tulloch
      ;; intero
      rust

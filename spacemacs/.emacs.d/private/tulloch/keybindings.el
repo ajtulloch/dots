@@ -18,6 +18,7 @@
 (global-set-key (kbd "C-c j") 'avy-goto-word-or-subword-1)
 ;; (global-set-key (kbd "C-s") 'swiper)
 ;; (global-set-key (kbd "C-s") 'swiper)(global-set-key (kbd "C-c") 'evil-force-normal-state)
+
 (add-hook 'ido-setup-hook
           (lambda ()
             ;; Go straight home
