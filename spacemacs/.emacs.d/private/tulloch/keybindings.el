@@ -8,12 +8,16 @@
 (global-set-key (kbd "C-c C-g") 'magit-status)
 (global-set-key (kbd "C-x 5") 'toggle-frame-split)
 (global-set-key (kbd "C-c C-f") 'clang-format)
+(global-set-key (kbd "C-c p f") 'projectile-find-file)
+(global-set-key (kbd "C-c p f") 'projectile-find-file)
+(global-set-key (kbd "C-c p s g") 'projectile-grep)
+(global-set-key (kbd "C-x C-f") 'ido-find-file)
 
 (global-set-key (kbd "C-c SPC") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "C-'") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "C-c j") 'avy-goto-word-or-subword-1)
 ;; (global-set-key (kbd "C-s") 'swiper)
-
+;; (global-set-key (kbd "C-s") 'swiper)(global-set-key (kbd "C-c") 'evil-force-normal-state)
 (add-hook 'ido-setup-hook
           (lambda ()
             ;; Go straight home
@@ -30,3 +34,4 @@
                   (interactive)
                   (forward-line -1)
                   (join-line -1)))
+

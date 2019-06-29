@@ -14,9 +14,9 @@
 ;; which require an initialization must be listed explicitly in the list.
 (setq tulloch-packages
     '(
-      dired-details+
-      avy
-      ivy
+      ;; dired-details
+      ;; avy
+      key-chord
       swiper
       annoying-arrows-mode
       ))
@@ -34,20 +34,18 @@
 ;; For more info on `use-package', see readme:
 ;; https://github.com/jwiegley/use-package
 
-(defun tulloch/init-dired-details+ ()
-  ""
-  (use-package dired-details+
-    :init
-    (setq dired-details-hidden-string "")
-    (setq dired-use-ls-dired nil)))
-
-;; https://github.com/jwiegley/use-package
 
 (defun tulloch/init-annoying-arrows-mode ()
   ""
   (use-package annoying-arrows-mode
     :init
-    (global-annoying-arrows-mode)))
+    (global-annoying-arrows-mode)
+    ;; Hack - install dired-detailsx
+    (load-file "~/.emacs.d/private/tulloch/dired-details.el")
+    (load-file "~/.emacs.d/private/tulloch/dired-details+.el")
+    (setq dired-details-hidden-string "")
+    (setq dired-use-ls-dired nil))
+  )
 
 (defun tulloch/init-swiper ()
   ""
@@ -55,3 +53,11 @@
     :init
     (ivy-mode 1)
     (setq ivy-use-virtual-buffers t)))
+
+(defun tulloch/init-key-chord ()
+  ""
+  (use-package key-chord
+    :init
+    (require 'key-chord)
+    (key-chord-mode 1)
+    (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state)))

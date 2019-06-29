@@ -121,7 +121,7 @@ export PATH=${PATH}:${ANDROID_SDK}/tools:${ANDROID_SDK}/platform-tools
 export LESS='FSRX'
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 # export PATH="~/anaconda3/bin:$PATH"
-export PATH=/Users/tulloch/miniconda2/bin:$PATH
+# export PATH=$PATH:/Users/tulloch/miniconda2/bin:
 
 # TVM
 export PYTHONPATH=~/src/tvm/vta/python:~/src/tvm/python:~/src/tvm/topi/python:~/src/tvm/nnvm/python:${PYTHONPATH}
@@ -144,9 +144,11 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+export PATH="/Users/tulloch/miniconda2/bin:$PATH"
+source /Users/tulloch/miniconda2/bin/activate
 
-source virtualenvwrapper.sh
-export VIRTUAL_ENV_DISABLE_PROMPT=1
+# source virtualenvwrapper.sh
+# export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
