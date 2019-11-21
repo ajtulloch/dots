@@ -55,14 +55,14 @@ export PATH="/Users/tulloch/.cask/bin:$PATH"
 # export PATH="/Users/tulloch/anaconda2/bin:$PATH"
 
 # export PATH="/opt/android_ndk/android-ndk-r10e:$PATH"
-export PATH="/opt/android_ndk/android-ndk-r15c:$PATH"
-export PATH="/opt/android_sdk/tools:$PATH"
-export PATH="/opt/android_sdk/platform-tools:$PATH"
-export ANDROID_SDK=/opt/android_sdk
-export ANDROID_HOME=/opt/android_sdk
-export ANDROID_NDK=/opt/android_ndk/android-ndk-r15c
-export ANDROID_NDK_REPOSITORY=/opt/android_ndk
-export TVM_NDK_CC=~/opt/android-toolchain-arm64
+# export PATH="/opt/android_ndk/android-ndk-r15c:$PATH"
+# export PATH="/opt/android_sdk/tools:$PATH"
+# export PATH="/opt/android_sdk/platform-tools:$PATH"
+# export ANDROID_SDK=/opt/android_sdk
+# export ANDROID_HOME=/opt/android_sdk
+# export ANDROID_NDK=/opt/android_sdk/ndk
+# export ANDROID_NDK_REPOSITORY=/opt/android_ndk
+# export TVM_NDK_CC=~/opt/android-toolchain-arm64
 # Rust
 source $HOME/.cargo/env
 
